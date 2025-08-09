@@ -1,0 +1,59 @@
+<!-- Accesibilidad web -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="freeCodeCamp Accessibility Quiz practice project">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Accessibility Quiz</title>
+</head>
+<body>
+    <header>
+        <img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" id="logo" alt="freeCodeCamp">
+        <h1>HTML/CSS Quiz</h1>
+        <nav>
+            <ul>
+                <li><a href="#student-info">INFO</a></li>
+                <li><a href="#html-questions">HTML</a></li>
+                <li><a href="#css-questions">CSS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="https://freecodecamp.org/practice-project/accessibility-quiz" method="post">
+            <section role="region" aria-labelledby="student-info">
+                <h2 id="student-info">Student Info</h2>
+                <div class="info">
+                    <label for="student-name">Name:</label>
+                    <input id="student-name" />
+                </div>
+                <div class="info">
+                    <label for="student-email">Email:</label>
+                    <input type="email" name="student-email" id="student-email" />
+                </div>
+                <div class="info">
+                    <label for="birth-date">Date of Birth:</label>
+                    <input type="date" name="birth-date" id="birth-date" />
+                </div>
+            </section>
+            <section role="region" aria-labelledby="html-questions">
+                <h2 id="html-questions">HTML</h2>
+            </section>
+            <section role="region" aria-labelledby="css-questions">
+                <h2 id="css-questions">CSS</h2>
+            </section>
+        </form>
+    </main>
+    <footer>
+        <h1>Anexo</h1>
+        <p>Atributo <strong>role</strong>: Para aumentar la accesibilidad de la página, el atributo role puede ser
+            usado para indicar el propósito detrás de un elemento en la página para las tecnologías de asistencia.<br>
+            El atributo role es una parte de la Iniciativa de Accesibilidad Web (WAI, por sus siglas en inglés), y 
+            acepta valores predefinidos.</p>
+        <p>Cada rol <strong>region</strong> requiere una etiqueta que ayuda a los usuarios de lectores de pantalla 
+            a entender el propósito de la región. Un método para agregar una etiqueta es agregar un elemento de 
+            encabezado dentro de la región y luego referenciarlo con el atributo <strong>aria-labelledby</strong>.</p>
+    </footer>
+</body>
+</html>
