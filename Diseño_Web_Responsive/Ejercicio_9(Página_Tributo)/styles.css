@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 16px;
+  width: auto;
+  height: 100%;
+}
+
+body {
+  background: #f5f6a7;
+  color: #1b1b32;
+  font-family: Helvetica;
+  padding: 10px;
+}
+
+#main {
+  margin: 10px;
+  background-color: rgb(255, 0, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  display: block;
+}
+
+#image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  padding: 25px;
+  text-align: center;
+}
+
+#img-caption, #tribute-info {
+  text-align: justify;
+  padding: 10px;
+}
