@@ -1,0 +1,123 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: rgb(240, 235, 255);
+  margin: 0;
+  display: grid;
+  grid-template-areas: 
+      "navbar main"
+      "navbar footer";
+  grid-template-columns: 290px 1fr;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+}
+
+#navbar {
+  grid-area: navbar;
+  padding: 20px;
+  overflow-y: auto;
+  position: fixed;
+  top: 10px;
+  left: 5px;
+  border: 1px solid black;
+  width: fit-content;
+  height: fit-content;
+}
+
+#navbar header {
+  margin: 5px 0 10px 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar ul li {
+  padding: 5px;
+  border: 3px solid rgb(0, 10, 10);
+}
+
+#navbar ul li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+#navbar ul li a:hover {
+  color: rgb(0, 240, 10);
+  text-decoration: underline;
+}
+
+#main-doc {
+  grid-area: main;
+  padding: 20px;
+  margin: 15px 0 15px 25px;
+  overflow-y: auto;
+  border: 2px dashed black;
+}
+
+.main-section {
+  margin: 10px;
+  padding: 15px;
+  border-bottom: 2px solid rgb(50, 40, 20);
+}
+
+.main-section header {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.main-section p,
+.main-section ul {
+  font-size: 13px;
+  text-align: justify;
+  margin: 1.5rem 0;
+}
+
+code {
+  display: block;
+  background-color: rgba(100, 100, 50, 0.5);
+  padding: 10px;
+  margin: 10px;
+  color: rgb(0, 30, 255);
+  text-align: left;
+}
+
+footer {
+  grid-area: footer;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  background-color: rgb(10, 0, 0);
+  color: rgb(255, 255, 240);
+}
+
+footer a {
+  text-decoration: none;
+  color: rgb(10, 30, 255);
+}
+
+footer a:hover {
+  color: rgb(0, 240, 10);
+  text-decoration: underline;
+}
+
+@media (max-width: 750px) {
+  #navbar {
+    font-size: 10px;
+  }
+
+  #main-doc {
+    font-size: 10px;;
+  }
+
+  footer {
+    font-size: 10px;
+  }
+}

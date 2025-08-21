@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Documentation Python</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar">
+      <header>Python Documentation</header>
+      <ul>
+        <li><a class="nav-link" href="#Introducción_Python">Introducción Python</a></li>
+        <li><a class="nav-link" href="#Utilización_del_intérprete_de_Python">Utilización del intérprete de Python</a></li>
+        <li><a class="nav-link" href="#Llamar_al_intérprete">Llamar al intérprete</a></li>
+        <li><a class="nav-link" href="#Traspaso_de_argumentos">Traspaso de argumentos</a></li>
+        <li><a class="nav-link" href="#Modo_interactivo">Modo interactivo</a></li>
+        <li><a class="nav-link" href="#El_intérprete_y_su_entorno">El intérprete y su entorno</a></li>
+      </ul>
+    </nav>
+    <!-- Contenido principal -->
+    <main id="main-doc">
+        <!-- Primera section -->
+        <section class="main-section" id="Introducción_Python">
+            <header>Introducción Python</header>
+            <p>Si en alguna ocasión has escrito un guion para un intérprete de órdenes (o shell script) de Unix largo, puede que conozcas esta sensación: Te encantaría añadir una característica más, pero ya es tan lento, tan grande, tan complicado...O la característica involucra una llamada al sistema u otra función accesible sólo desde C. El problema en sí no suele ser tan complejo como para transformar el guion en un programa en C. Igual el programa requiere cadenas de longitud variable u otros tipos de datos (como listas ordenadas de nombres de fichero) fáciles en sh, pero tediosas en C. O quizá no tienes tanta soltura con C.</p>
+            <p>En tales casos, <strong>Python</strong> puede ser el lenguaje que necesitas. Python es simple, pero es un lenguaje de programación real. Ofrece más apoyo e infraestructura para programas grandes que el intérprete de órdenes. Por otra parte, también ofrece mucha más comprobación de errores que C y, al ser un lenguaje de muy alto nivel, tiene incluidos tipos de datos de alto nivel, como matrices flexibles y diccionarios, que llevarían días de programación en C. Dados sus tipos de datos más generales, se puede aplicar a un rango de problemas más amplio que Awk o incluso Perl, pero muchas cosas son, al menos, igual de fáciles en Python que en esos lenguajes.</p>
+            <p>Python permite escribir programas muy compactos y legibles. Los programas escritos en Python son normalmente mucho más cortos que sus equivalentes en C o C++, por varios motivos:</p>
+
+        <ul>
+          <li>Los tipos de datos de alto nivel permiten expresar operaciones complejas en una sola sentencia.</li>
+          <li>El agrupamiento de sentencias se realiza mediante sangrado (indentación) en lugar de begin/end o llaves.</li>
+          <li>No es necesario declarar los argumentos ni las variables.</li>
+        </ul>
+
+        </section>
+        <!-- Segunda section -->
+        <section class="main-section" id="Utilización_del_intérprete_de_Python">
+            <header>Utilización del intérprete de Python</header>
+            <p>En esta sección veremos las siguientes partes:</p>
+            <ul>
+              <li>Llamar al intérprete</li>
+              <ol>
+                <li>Traspaso de argumentos</li>
+                <li>Modo interactivo
+              </ol>
+              <li>El intérprete y su entorno</li>
+              <ol>
+                <li>Gestión de errores</li>
+                <li>Guiones Python ejecutables</li>
+                <li>Codificación del código fuente</li>
+                <li>El fichero de arranque interactivo</li>
+              </ol>
+            </ul>
+        </section>
+        <!-- Tercera section -->
+        <section class="main-section" id="Llamar_al_intérprete">
+            <header>Llamar al intérprete</header>
+            <p>En Unix, el intérprete de Python se suele instalar como /usr/local/bin/python en aquellas máquinas donde esté disponible. En Windows, se instala en el directorio Archivos de programa. Poner este directorio en la ruta de ejecutables hace posible arrancarlo tecleando en el intérprete de órdenes la orden:</p>
+            <code>python</code>
+            <p>Como la elección del directorio donde reside el intérprete es una opción de instalación, es posible que se halle en otros lugares. Consulta con tu guru de Python local o tu administrador de sistemas (por ejemplo, /usr/local/python es una alternativa frecuente).</p>
+            <p>Teclear un carácter fin de fichero (Control-D en Unix, Control-Z en DOS o Windows) en el intérprete causa la salida del intérprete con un estado cero. Si eso no funciona, se puede salir del intérprete tecleando las siguientes órdenes:</p>
+            <code>"import sys; sys.exit()"</code>
+            <p>Las opciones de edición de la línea de órdenes no son muy destacables. En Unix, es posible que quien instalara el intérprete en tu sistema incluyera soporte para la biblioteca de GNU `readline', que permite una edición de línea más elaborada y la recuperación de órdenes anteriores. El modo más rápido de ver si hay soporte de edición de líneas es teclear Control-P en cuanto aparece el intérprete. Si pita, la edición de líneas está disponible (en el Apéndice A hay una introducción a las teclas de edición). Si no sale nada o sale P, no está disponible la edición de líneas y sólo se puede utilizar la tecla de borrado para borrar el último carácter tecleado.</p>
+            <p>El intérprete funciona como el intérprete de órdenes de Unix: cuando se lo llama con la entrada estándar conectada a un dispositivo tty, lee y ejecuta las órdenes interactivamente; cuando se le da un nombre de fichero como argumento o se le da un fichero como entrada estándar, lee y ejecuta un guion desde ese fichero.</p>
+            <p>Otro modo de arrancar el intérprete es:</p>
+            <code>python -c orden [argumento] ...</code>
+            <p>Este comando ejecuta las sentencias de orden, de forma análoga a la opción -c de la línea de órdenes. Como las sentencias de Python suelen contener espacios u otros caracteres que la línea de órdenes considera especiales, lo mejor es encerrar orden entre dobles comillas por completo.</p>
+            <p>Hay módulos de Python que son útiles como programas independientes. Se los puede llamar mediante:</p>
+            <code>python -m módulo [arg] ...</code>
+            <p>Este comando ejecuta el fichero de código fuente de module como si se hubiera dado el nombre completo en la línea de órdenes.</p>
+            <p>Observa que hay una diferencia entre <strong>"python fichero"</strong> y <strong>"python &ltfichero&gt"</strong>. En el caso de la redirección, las solicitudes de entrada del programa, tales como llamadas a <strong>input()</strong> y <strong>raw_input()</strong>, se satisfacen desde fichero. Como este fichero ya se ha leído hasta el final antes de empezar la ejecución del programa, el programa se encuentra el fin de fichero inmediatamente. En el caso del nombre de fichero como argumento, las solicitudes de entrada son satisfechas desde lo que esté conectado a la entrada estándar (esto suele ser lo deseado).</p>
+            <p>Cuando se utiliza un fichero de guion, a veces es útil ejecutar el guion y entrar en modo interactivo inmediatamente después. Esto se consigue pasando -i como argumento, antes del nombre del guion (esto no funciona si el guion se lee desde la entrada estándar, por la misma razón indicada en el párrafo anterior).</p>
+        </section>
+        <!-- Cuarta section -->
+        <section class="main-section" id="Traspaso_de_argumentos">
+            <header>Traspaso de argumentos</header>
+            <p>El intérprete pasa el nombre del guion y los argumentos, si los conoce, mediante la variable <strong>sys.argv</strong>, que es una lista de cadenas. Su longitud es al menos uno (cuando no hay guion y no hay argumentos, <strong>sys.argv[0]</strong> es una cadena vacía). Cuando se usa <strong>-m</strong> módulo, se le da a <strong>sys.argv[0]</strong> el nombre completo del módulo adecuado. Cuando el guion es <strong>'-'</strong> (es decir, la entrada estándar), <strong>sys.argv[0]</strong> vale <strong>'-'</strong>. Cuando se utiliza <strong>-c</strong> orden, <strong>sys.argv[0]</strong> vale <strong>'-c'</strong>. Las opciones tras <strong>-c</strong> orden o <strong>-m</strong> módulo no las utiliza el intérprete Python, sino que quedan en <strong>sys.argv</strong> para uso de la orden o del módulo.</p>
+        </section>
+        <!-- Quinta section -->
+        <section class="main-section" id="Modo_interactivo">
+            <header>Modo interactivo</header>
+            <p>Cuando se leen órdenes desde una tty, se dice que el intérprete está en modo interactivo. En este modo, espera a la siguiente orden con el indicador principal, que suele se tres signos `mayor' (">>>" ). Para las líneas adicionales, se utiliza el indicador secundario, por omisión tres puntos ("... ").</p>
+            <p>El intérprete muestra un mensaje de bienvenida con su número de versión e información de derechos de copia, antes de mostrar el primer indicador:</p>
+            <code>
+              python<br>
+Python 1.5.2b2 (#1, Feb 28 1999, 00:02:06)  [GCC 2.8.1] on sunos5<br>
+Copyright 1991-1995 Stichting Mathematisch Centrum, Amsterdam<br>
+>>>
+            </code>
+            <p>Las líneas de continuación son necesarias al introducir construcciones milti-línea. Por ejemplo, echa un vistazo a esta sentencia <strong>if</strong>:</p>
+            <code>
+              >>> la_tierra_es_plana = 1<br>
+>>> if la_tierra_es_plana:<br>
+...     print "¡Cuidado, que te caes!"<br>
+...<br>
+¡Cuidado, que te caes!
+            </code>
+        </section>
+        <!-- Sexto section -->
+        <section class="main-section" id="El_intérprete_y_su_entorno">
+            <header>El intérprete y su entorno</header>
+            <ol>
+              <h3><li>Gestión de errores</li></h3>
+              <p>Cuando ocurre un error, el intérprete muestra un mensaje de error y una traza de la pila. En el modo interactivo, después vuelve al indicador principal. Si la entrada venía de un fichero, sale con un resultado distinto de cero tras mostrar la traza de la pila (las excepciones gestionadas con una sentencia <strong>except</strong> en una construcción <strong>try</strong> no son errores en este contexto). Existen errores no capturables que hacen que se cierre el intérprete con un resultado distinto de cero. Por ejemplo, esto ocurre con las inconsistencias internas y, en algunos casos, al quedarse sin memoria. Todos los mensajes de error se escriben en la salida de error estándar (la pantalla, si no se redirige a un fichero u otra cosa). La salida del programa se escribe en la salida estándar (que también es la pantalla, salvo en el caso mencionado antes).</p>
+              <p>Si se teclea el carácter de interrupción (suele ser Control-C o DEL) en el indicador principal o secundario se cancela la entrada y se hace volver el indicador primario. Si se intenta interrumpir mientras se ejecuta una orden, se activa la excepción <strong>KeyboardInterrupt</strong>, que puede ser gestionada por una construcción <strong>try</strong>.</p>
+
+              <h3><li>Guiones Python ejecutables</li></h3>
+              <p>En sistemas Unix tipo BSD, los guiones Python se pueden hacer ejecutables directamente, como guiones de línea de órdenes, poniendo la línea</p>
+              <code>#! /usr/bin/env python</code>
+              <p>(suponiendo que el intérprete está en el PATH del usuario) al principio del guion y dándole al guion permisos de ejecución. <strong>"#!"</strong> deben ser los primeros caracteres del fichero. En algunas plataformas, esta primera línea debe terminar con un fin de línea tipo Unix ("\n"), no tipo Mac OS ("\r") ni Windows ("\r\n"). Observa que la almohadilla, <strong>"#"</strong>, se utiliza para iniciar un comentario en Python.</p>
+              <p>Se le puede dar al guion un modo o permiso ejecutable, con la orden <strong>chmod</strong>:</p>
+              <code>$ chmod +x miguion.py</code>
+              <h3><li>Codificación del código fuente</li></h3>
+              <p>Se puede utilizar codificaciones distintas de ASCII en los archivos de código fuente Python. El mejor modo es poner una línea de comentario justo después de la línea de <strong>#!</strong> (si no la hay, ponerla la primera) para definir la codificación del código fuente:</p>
+              <code># -*- coding: codificación -*-</code>
+              <p>Con esta declaración, se indica que todos los caracteres del código fuente tienen la codificación y será posible escribir directamente literales de cadena Unicode en la codificación seleccionada. La lista de codificaciones posibles se encuentra en la <a href="https://pyspanishdoc.sourceforge.net/lib/lib.html" target="_blank">Referencia de las bibliotecas de Python</a>, en la sección sobre <a href="https://pyspanishdoc.sourceforge.net/lib/module-codecs.html" target="_blank">codecs</a>.</p>
+              <p>Por ejemplo, para escribir literales Unicode que incluyan el símbolo de la moneda Euro, se puede utilizar la codificación ISO-8859-15, en la que el símbolo del Euro tiene el ordinal 164. Este guion mostrará el valor 8364 (el ``codepoint'' Unicode correspondiente al símbolo del Euro) y terminará:</p>
+              <code>
+                # -*- coding: iso-8859-15 -*-<br>
+                <br>
+                moneda = u"€"<br>
+                print ord(moneda)
+              </code>
+              <p>Si tu editor tiene la posibilidad de guardar ficheros como <strong>UTF-8</strong> con una marca de orden de bytes UTF-8 (también conocida como BOM), también se podrá usar esto en lugar de una declaración de codificación. IDLE tiene esta capacidad si se establece <strong>Opciones/General/Codificación de la fuente predeterminada/UTF-8</strong>. Obsérvese que esta firma no la entienden las antiguas versiones de Python (2.2 y anteriores), ni tampoco los sistemas operativos en el caso de guiones con líneas #! (sólo para los sistemas tipo Unix).</p>
+              <p>Mediante el uso de UTF-8 (bien por la firma o por la declaración de codificación), se pueden utilizar caracteres de la mayoría de los lenguajes tanto en los literales como en los comentarios. No se puede usar caracteres no ASCII en los identificadores. Para mostrar dichos caracteres adecuadamente, tu editor debe reconocer que el fichero es UTF-8, además de usar un tipo de letra que contenga los caracteres hallados en el fichero.</p>
+              <h3><li>El fichero de arranque interactivo</li></h3>
+              <p>Al usar Python interactivamente, suele ser útil que se ejecuten algunas órdenes estándar cada vez que se arranca el intérprete. Esto se puede lograr poniendo en la variable de entorno PYTHONSTARTUP el nombre del fichero que contiene las órdenes de arranque. Es similar a la característica .profile de la línea de órdenes de Unix o al fichero autoexec.bat de MS-DOS.</p>
+              <p>Este fichero sólo se lee en sesiones interactivas, no cuando Python lee órdenes de un guion, ni cuando se utiliza /dev/tty como fuente explícita de órdenes (lo que hace que se comporte como una sesión interactiva salvo en este detalle). Estas órdenes se ejecutan en el mismo espacio nominal que las órdenes interactivas, para que los objetos definidos o módulos importados se puedan usar sin necesidad de prefijos en la sesión interactiva. También se puede cambiar los indicadores principal y secundario (<strong>sys.ps1</strong> y <strong>sys.ps2</strong>) usando este fichero.</p>
+              <p>Si deseas leer un archivo de arranque adicional del directorio actual puedes programarlo así en el fichero de arranque global, de este modo: <strong>"if os.path.isfile('.pythonrc.py'): execfile('.pythonrc.py')"</strong>. Si deseas utilizar el fichero de arranque en un guion, debes hacerlo explícitamente dentro del guion:</p>
+              <code>
+                import os<br>
+nombreFich = os.environ.get('PYTHONSTARTUP')<br>
+if nombreFich and os.path.isfile(nombreFich):<br>
+    execfile(nombreFich)
+              </code>
+            </ol>
+        </section>
+    </main>
+    <footer>
+      <p> Para más información: <a href="https://pyspanishdoc.sourceforge.net/tut/tut.html" target="_blank">Manual de Python tutorial</a></p>
+    </footer>
+  </body>
+</html>
