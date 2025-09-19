@@ -1,0 +1,127 @@
+:root {
+  --building-color1: #aa80ff;
+  --building-color2: #66cc99;
+  --building-color3: #cc6699;
+  --building-color4: #538cc6;
+}
+
+* {
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.background-buildings {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+/*
+Paso 14: 
+Ahora tienes algo que se parece a un edificio. Estás listo para crear 
+tu primera variable. Las declaraciones de variables comienzan con dos 
+guiones (-) y se les asigna un nombre y un valor como este: 
+
+--variable-name: value;. 
+
+En la regla de la clase bb1, cree una variable denominada --building-color1 
+y asígnele un valor de #999.
+
+*/
+
+.bb1 {
+  width: 10%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*
+ Paso 15:
+Para usar una variable, ponga el nombre de la variable entre paréntesis 
+con var delante de ellos de esta manera: var(--variable-name). Cualquier 
+valor que haya asignado a la variable se aplicará a cualquier propiedad 
+en la que la use.
+
+Agregue la variable --building-color1 que creó en el paso anterior como 
+el valor de la propiedad background-color de la clase .bb1a.
+
+Paso 17:
+Cambie el valor de su variable de #999 a #aa80ff y podrá ver 
+cómo se aplica en todos los lugares donde usó la variable. 
+*/
+
+.bb1a {
+  width: 70%;
+  height: 10%;
+  background-color: var(--building-color1);
+}
+
+.bb1b {
+  width: 80%;
+  height: 10%;
+  background-color: var(--building-color1);
+}
+
+.bb1c {
+  width: 90%;
+  height: 10%;
+  background-color: var(--building-color1);
+}
+
+.bb1d {
+  width: 100%;
+  height: 70%;
+  background-color: var(--building-color1);
+}
+
+/*
+Paso 23:
+Eso no funcionó. Debe agregar un valor de reserva a una variable 
+poniéndolo como el segundo valor de donde usa la variable de esta manera: 
+
+var(--variable-name, fallback-value). 
+
+La propiedad usará el valor de reserva cuando haya un problema con la variable. 
+Agregue un valor de reserva de green al background-color de .bb2.
+*/
+
+.bb2 {
+    width: 10%;
+    height: 50%;
+    background-color: var(--building-color2, green);
+}
+
+.bb2 {
+  width: 10%;
+  height: 50%;
+  background-color: var(--building-color2);
+}
+
+.bb3 {
+  width: 10%;
+  height: 55%;
+  background-color: var(--building-color3);
+}
+
+.bb4 {
+  width: 11%;
+  height: 58%;
+  background-color: var(--building-color4);
+}
+
+.foreground-buildings {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
