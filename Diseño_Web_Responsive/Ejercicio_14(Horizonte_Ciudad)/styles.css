@@ -3,10 +3,14 @@
   --building-color2: #66cc99;
   --building-color3: #cc6699;
   --building-color4: #538cc6;
+  --window-color1: #bb99ff;
+  --window-color2: #8cd9b3;
+  --window-color3: #d98cb3;
+  --window-color4: #8cb3d9;
 }
 
 * {
-  border: 1px solid black;
+  
   box-sizing: border-box;
 }
 
@@ -16,12 +20,46 @@ body {
   overflow: hidden;
 }
 
-.background-buildings {
+.background-buildings, .foreground-buildings {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: space-evenly;
+  position: absolute;
+  top: 0;
+}
+
+.building-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.window-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/*
+
+Paso 112
+Dale a la clase sky un radial-gradient. Utilice #ffcf33 del 0% al 20%, #ffff66 al 21% y #bbeeff al 100%. Esto agregará un degradado circular al fondo que será tu sol.
+
+Paso 113
+En la parte superior de la lista de colores del degradado del cielo, donde pondrías una dirección para el degradado; Agregue circle closest-corner at 15% 15%,. Esto moverá el inicio del degradado a 15% desde la parte superior e izquierda. Hará que termine en la closest-corner y mantendrá una forma de circle. Estas son algunas palabras clave integradas en gradientes para describir cómo se comporta.
+
+*/
+
+.sky {
+  background: radial-gradient(
+      circle closest-corner at 15% 15%,
+      #ffcf33,
+      #ffcf33 20%,
+      #ffff66 21%,
+      #bbeeff 100%
+    );
 }
 
 /*
@@ -37,12 +75,11 @@ y asígnele un valor de #999.
 
 */
 
+/* BACKGROUND BUILDINGS - "bb" stands for "background building" */
+
 .bb1 {
   width: 10%;
   height: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /*
@@ -62,26 +99,31 @@ cómo se aplica en todos los lugares donde usó la variable.
 
 .bb1a {
   width: 70%;
-  height: 10%;
-  background-color: var(--building-color1);
 }
 
 .bb1b {
   width: 80%;
-  height: 10%;
-  background-color: var(--building-color1);
 }
 
 .bb1c {
   width: 90%;
-  height: 10%;
-  background-color: var(--building-color1);
 }
 
 .bb1d {
   width: 100%;
   height: 70%;
-  background-color: var(--building-color1);
+  background: linear-gradient(
+    var(--building-color1) 50%,
+    var(--window-color1)
+    );
+}
+
+.bb1-window {
+  height: 10%;
+  background: linear-gradient(
+    var(--building-color1),
+    var(--window-color1)
+  );
 }
 
 /*
@@ -98,30 +140,277 @@ Agregue un valor de reserva de green al background-color de .bb2.
 .bb2 {
     width: 10%;
     height: 50%;
-    background-color: var(--building-color2, green);
 }
 
-.bb2 {
-  width: 10%;
-  height: 50%;
-  background-color: var(--building-color2);
+.bb2a {
+  border-bottom: 5vh solid var(--building-color2);
+  border-left: 5vw solid transparent;
+  border-right: 5vw solid transparent;
+}
+
+.bb2b {
+  width: 100%;
+  height: 90%;
+  background: repeating-linear-gradient(
+      var(--building-color2),
+      var(--building-color2) 6%,
+      var(--window-color2) 6%,
+      var(--window-color2) 9%
+    );
 }
 
 .bb3 {
   width: 10%;
   height: 55%;
-  background-color: var(--building-color3);
+  background: repeating-linear-gradient(
+      90deg,
+      var(--building-color3),
+      var(--building-color3),
+      var(--window-color3) 15%
+    );
 }
 
 .bb4 {
   width: 11%;
   height: 58%;
+}
+
+.bb4a {
+  width: 3%;
+  height: 10%;
   background-color: var(--building-color4);
 }
 
-.foreground-buildings {
+.bb4b {
+  width: 80%;
+  height: 5%;
+  background-color: var(--building-color4);
+}
+
+.bb4c {
   width: 100%;
+  height: 85%;
+  background-color: var(--building-color4);
+}
+
+.bb4-window {
+  width: 18%;
+  height: 90%;
+  background-color: var(--window-color4);
+}
+
+/* FOREGROUND BUILDINGS - "fb" stands for "foreground building" */
+.fb1 {
+  width: 10%;
+  height: 60%;
+}
+
+.fb1a {
+  border-bottom: 7vh solid var(--building-color4);
+  border-left: 2vw solid transparent;
+  border-right: 2vw solid transparent;
+}
+
+.fb1b {
+  width: 60%;
+  height: 10%;
+  background-color: var(--building-color4);
+}
+
+.fb1c {
+  width: 100%;
+  height: 80%;
+  background: repeating-linear-gradient(
+      90deg,
+      var(--building-color4),
+      var(--building-color4) 10%,
+      transparent 10%,
+      transparent 15%
+    ),
+    repeating-linear-gradient(
+      var(--building-color4),
+      var(--building-color4) 10%,
+      var(--window-color4) 10%,
+      var(--window-color4) 90%
+    );
+}
+
+.fb2 {
+  width: 10%;
+  height: 40%;
+}
+
+.fb2a {
+  width: 100%;
+  border-bottom: 10vh solid var(--building-color3);
+  border-left: 1vw solid transparent;
+  border-right: 1vw solid transparent;
+}
+
+.fb2b {
+  width: 100%;
+  height: 75%;
+  background-color: var(--building-color3);
+}
+
+.fb2-window {
+  width: 22%;
   height: 100%;
-  position: absolute;
-  top: 0;
+  background-color: var(--window-color3);
+}
+
+.fb3 {
+  width: 10%;
+  height: 35%;
+}
+
+.fb3a {
+  width: 80%;
+  height: 15%;
+  background-color: var(--building-color1);
+}
+
+.fb3b {
+  width: 100%;
+  height: 35%;
+  background-color: var(--building-color1);
+}
+
+.fb3-window {
+  width: 25%;
+  height: 80%;
+  background-color: var(--window-color1);
+}
+
+.fb4 {
+  width: 8%;
+  height: 45%;
+  position: relative;
+  left: 10%;
+}
+
+.fb4a {
+  border-top: 5vh solid transparent;
+  border-left: 8vw solid var(--building-color1);
+}
+
+.fb4b {
+  width: 100%;
+  height: 89%;
+  background-color: var(--building-color1);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fb4-window {
+  width: 30%;
+  height: 10%;
+  border-radius: 50%;
+  background-color: var(--window-color1);
+  margin: 10%;
+}
+
+.fb5 {
+  width: 10%;
+  height: 33%;
+  position: relative;
+  right: 10%;
+  background: repeating-linear-gradient(
+      var(--building-color2),
+      var(--building-color2) 5%,
+      transparent 5%,
+      transparent 10%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--building-color2),
+      var(--building-color2) 12%,
+      var(--window-color2) 12%,
+      var(--window-color2) 44%
+    );
+}
+
+.fb6 {
+  width: 9%;
+  height: 38%;
+  background: repeating-linear-gradient(
+      90deg,
+      var(--building-color3),
+      var(--building-color3) 10%,
+      transparent 10%,
+      transparent 30%
+    ),
+    repeating-linear-gradient(
+      var(--building-color3),
+      var(--building-color3) 10%,
+      var(--window-color3) 10%,
+      var(--window-color3) 30%
+    );
+}
+
+/*
+Ejemplo gradiante:
+
+gradient-type(
+  color1,
+  color2 20%,
+  color3
+);
+
+Aquí, pasará de color1 a color2 entre 0% y 20% del elemento y luego pasará a color3 para el resto.
+
+Las transiciones de gradiente a menudo cambian gradualmente de un color a otro. Cuando se requiere un cambio más brusco, la transición puede hacerse con un tope duro como éste:
+
+linear-gradient(
+  var(--first-color) 0%,
+  var(--first-color) 40%,
+  var(--second-color) 40%,
+  var(--second-color) 80%
+);
+
+Repeating-linear-gradient:
+
+background: repeating-linear-gradient(
+      var(--building-color2),
+      var(--building-color2) 6%,
+      var(--window-color2) 6%,
+      var(--window-color2) 9%
+    );
+  
+Esto hará que los cuatro colores de su degradado se repitan hasta que llegue al fondo del elemento; dándote algunas rayas y ahorrándote tener que agregar un montón de elementos para crearlos
+*/
+
+/*
+Paso 114
+
+Una consulta de medios se puede usar para cambiar estilos en función de ciertas condiciones, y se ven así:
+
+Código de ejemplo
+@media (condition) {
+
+}  
+Agregue una consulta multimedia vacía en la parte inferior de la hoja de estilos con una condición de max-width: 1000px. Los estilos agregados aquí surtirán efecto cuando el tamaño del documento sea de 1000px de ancho o menos.
+*/
+
+@media (max-width: 750px) {
+  :root {
+    --building-color1: #000;
+    --building-color2: #000;
+    --building-color3: #000;
+    --building-color4: #000;
+    --window-color1: #777;
+    --window-color2: #777;
+    --window-color3: #777;
+    --window-color4: #777;
+  }
+
+  .sky {
+    background: radial-gradient(
+    closest-corner circle at 15% 15%,
+    #ccc,
+    #ccc 20%,
+    #445 21%,
+    #223 100%
+  );
+  }
 }
