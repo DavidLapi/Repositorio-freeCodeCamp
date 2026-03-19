@@ -2,4 +2,4 @@
 
 En esta sección aprendemos a programar sistemas web con el lenguaje más sencillo de todos, <b>Python</b>
 
-Introducción a Python --> [**Click aquí**](./Fundamentos%20Python/introduccion.md)
+Introducción a Python --> [**Click aquí**](./Fundamentos%20Python/0_introduccion.md)

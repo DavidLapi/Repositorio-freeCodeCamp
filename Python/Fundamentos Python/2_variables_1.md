@@ -1,4 +1,4 @@
-# Variables y tipos de datos
+# Variables y tipos de datos, parte 1
 
 ## ¿Cómo declaras variables y cuáles son las convenciones de nomenclatura para nombrar variables?
 
@@ -100,3 +100,4 @@ Sin embargo, no debes usar comentarios para explicar lo que significan tus nombr
 
 --------------------------------------------------------------------------------
 
+Función de impresión --> [**Click aquí**](./funcion_impresion.md)
