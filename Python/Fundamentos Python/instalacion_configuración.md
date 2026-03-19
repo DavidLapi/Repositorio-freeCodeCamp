@@ -78,3 +78,7 @@ Si ninguno de los comandos muestra una versión de Python, puedes buscar un paqu
 [] Una archivo AVI.
 [X] Un ejecutble (*.exe*)
 [] Un archivo JSON ejecutable.
+
+---------------------------------------------------------------------------
+
+Variables y tipos de datos --> [**Click aquí**](./variables.md)
