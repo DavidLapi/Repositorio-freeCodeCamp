@@ -163,21 +163,21 @@ isinstance('John Doe', int) # False
 
 1. ¿Qué significa que Python sea de tipado dinámico?
 
-[] Debe especificar manualmente el tipo de dato de cada variable.
-[] Python no admite diferentes tipos de datos.
-[X] Python determina automáticamente el tipo de dato según el valor asignado.
-[] Las variables en Python no pueden cambiar su tipo de dato después de la asignación.
+- [ ] Debe especificar manualmente el tipo de dato de cada variable.
+- [ ] Python no admite diferentes tipos de datos.
+- [X] Python determina automáticamente el tipo de dato según el valor asignado.
+- [ ] Las variables en Python no pueden cambiar su tipo de dato después de la asignación.
 
 2. ¿Cuál es la diferencia entre los tipos de datos enteros y flotantes?
 
-[] Los enteros pueden almacenar números positivos y negativos, mientras que los flotantes solo pueden almacenar números positivos.
-[X] Los enteros son números enteros sin decimales, mientras que los flotantes son números con puntos decimales.
-[] Los flotantes ocupan menos memoria que los enteros en Python.
-[] Los enteros solo pueden almacenar números hasta 1000, mientras que los flotantes no tienen límite.
+- [ ] Los enteros pueden almacenar números positivos y negativos, mientras que los flotantes solo pueden almacenar números positivos.
+- [X] Los enteros son números enteros sin decimales, mientras que los flotantes son números con puntos decimales.
+- [ ] Los flotantes ocupan menos memoria que los enteros en Python.
+- [ ] Los enteros solo pueden almacenar números hasta 1000, mientras que los flotantes no tienen límite.
 
 3. ¿Cómo se puede comprobar el tipo de dato de una variable en Python?
 
-[X] Usando la función *type()*, como *type(my_var)*.
-[] Comprobando manualmente el valor de la variable.
-[] Usando la función *typeof*, como *typeof(my_var)*.
-[] Convirtiendo la variable a una cadena y analizando sus caracteres. 
+- [X] Usando la función *type()*, como *type(my_var)*.
+- [ ] Comprobando manualmente el valor de la variable.
+- [ ] Usando la función *typeof*, como *typeof(my_var)*.
+- [ ] Convirtiendo la variable a una cadena y analizando sus caracteres. 

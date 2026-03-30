@@ -79,24 +79,24 @@ Sin embargo, no debes usar comentarios para explicar lo que significan tus nombr
 
 1. ¿Cuál de las siguientes es la forma correcta de declarar una variable en Python?
 
-[] let age = 25
-[] const age = 25
-[] var age = 25
-[X] age = 25
+- [ ] let age = 25
+- [ ] const age = 25
+- [ ] var age = 25
+- [X] age = 25
 
 2. ¿Cuál de estas no es una regla para nombrar variables?
 
-[] Los nombres de las variables deben comenzar con una letra o un guión bajo.
-[X] Los nombres de las variables no son sensibles a mayúsculas.
-[] Los nombres de las variables no pueden usar las palabras clave reservadas de Python.
-[] Los nombres de variables pueden contener letras, números y guiones bajos.
+- [ ] Los nombres de las variables deben comenzar con una letra o un guión bajo.
+- [X] Los nombres de las variables no son sensibles a mayúsculas.
+- [ ] Los nombres de las variables no pueden usar las palabras clave reservadas de Python.
+- [ ] Los nombres de variables pueden contener letras, números y guiones bajos.
 
 3. ¿Por qué deberías evitar usar nombres de variables de una sola letra?
 
-[X] No comunican el propósito de la variable.
-[] Python no permite nombres de variables de una sola letra.
-[] Aumentan el riesgo de errores de sintaxis.
-[] Usan más memoria que los nombres de variables más largos.
+- [X] No comunican el propósito de la variable.
+- [ ] Python no permite nombres de variables de una sola letra.
+- [ ] Aumentan el riesgo de errores de sintaxis.
+- [ ] Usan más memoria que los nombres de variables más largos.
 
 --------------------------------------------------------------------------------
 

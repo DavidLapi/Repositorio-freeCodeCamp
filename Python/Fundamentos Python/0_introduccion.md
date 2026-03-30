@@ -30,23 +30,23 @@ Python es una excelente opción para cualquiera que quiera aprender programació
 
 1. ¿Qué bibliotecas se utilizan comúnmente para el análisis de datos en Python?
 
-[X] Pandas y NumPy
-[] TensorFlow y Scikit-learn
-[] React y Vue
-[] Django y Flask
+- [X] Pandas y NumPy
+- [ ] TensorFlow y Scikit-learn
+- [ ] React y Vue
+- [ ] Django y Flask
 
 2. ¿Cómo se usa Python en sistemas embebidos e IoT?
 
-[] Potencia motores de juego para el desarrollo de VR.
-[X] Funciona en microcomputadores como Paspberry Pi y placas compatibles.
-[] Se utiliza principalmente para diseñar componentes de la interfaz de usuario.
-[] Reemplaza lenguajes de bajo nivel como C en todos los casos.
+- [ ] Potencia motores de juego para el desarrollo de VR.
+- [X] Funciona en microcomputadores como Paspberry Pi y placas compatibles.
+- [ ] Se utiliza principalmente para diseñar componentes de la interfaz de usuario.
+- [ ] Reemplaza lenguajes de bajo nivel como C en todos los casos.
 
 3. ¿Qué frameworks de Python se utilizan en el desarrollo web?
 
-[] React, Vue, Angular
-[] TensorFlow, PyTorch, Scikit-learn
-[] NumPy, Pandas, Matplotlib
-[X] Django, FastAPI, Flask
+- [ ] React, Vue, Angular
+- [ ] TensorFlow, PyTorch, Scikit-learn
+- [ ] NumPy, Pandas, Matplotlib
+- [X] Django, FastAPI, Flask
 
 Instalación y configuración Python --> [**Click aquí**](./instalacion_configuración.md)

@@ -60,24 +60,24 @@ Si ninguno de los comandos muestra una versión de Python, puedes buscar un paqu
 
 1. ¿Desde qué dirección puedes descargar Python?
 
-[] wikipedia.org
-[] python3.com
-[] python3.org
-[X] python.org
+- [ ] wikipedia.org
+- [ ] python3.com
+- [ ] python3.org
+- [X] python.org
 
 2. ¿Cómo puedes añadir Python automáticamente a ruta en Windows?
 
-[] Instalando Python
-[X] Al marcar la casilla "agregar a ruta" durante el proceso de instalación.
-[] Al marcar la casilla "usar privilegios de administrador".
-[] Descargando Python desde *python.org*.
+- [ ] Instalando Python
+- [X] Al marcar la casilla "agregar a ruta" durante el proceso de instalación.
+- [ ] Al marcar la casilla "usar privilegios de administrador".
+- [ ] Descargando Python desde *python.org*.
 
 3. ¿Qué tipo de archivo descargas al instalar Python para Windows?
 
-[] Un archivo de paquete (*.pkg*)
-[] Una archivo AVI.
-[X] Un ejecutble (*.exe*)
-[] Un archivo JSON ejecutable.
+- [ ] Un archivo de paquete (*.pkg*)
+- [ ] Una archivo AVI.
+- [X] Un ejecutble (*.exe*)
+- [ ] Un archivo JSON ejecutable.
 
 ---------------------------------------------------------------------------
 

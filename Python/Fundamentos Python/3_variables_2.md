@@ -32,10 +32,10 @@ Python agrega automáticamente un espacio entre cada elemento cuando los separas
 print('My favorite colors are', 'blue', 'green', 'red')
 ```
 
-[X] Porque separar valores con comas en *print()* añade espacios entre ellos.
-[] Porque las cadenas se unen automáticamente sin ningún separador.
-[] Porque cada llamada a print() agrega un espacio por defecto.
-[] Porque Python convierte automáticamente todas las cadenas a mayúsculas en la salida.
+- [X] Porque separar valores con comas en *print()* añade espacios entre ellos.
+- [ ] Porque las cadenas se unen automáticamente sin ningún separador.
+- [ ] Porque cada llamada a print() agrega un espacio por defecto.
+- [ ] Porque Python convierte automáticamente todas las cadenas a mayúsculas en la salida.
 
 2. ¿Cuál sería la salida del siguiente código?
 
@@ -43,10 +43,10 @@ print('My favorite colors are', 'blue', 'green', 'red')
 print('Hello', 'world!')
 ```
 
-[X] Hello world!
-[] Helloworld!
-[] Hallo, world!
-[] Hello\nworld!
+- [X] Hello world!
+- [ ] Helloworld!
+- [ ] Hallo, world!
+- [ ] Hello\nworld!
 
 3. ¿Cuál es el propósito de las comillas alrededor de *Hello world!* en el siguiente código?
 
@@ -54,7 +54,7 @@ print('Hello', 'world!')
 print('Hello world!')
 ```
 
-[X] Definen una cadena que será impresa por la función *print()*.
-[] Se usan para llamar a una función llamada *Hello world!*.
-[] Son obligatorios solo si la cadena contiene espacios.
-[] Le indican a Python que imprima una variable llamada *Hello world!*.
+- [X] Definen una cadena que será impresa por la función *print()*.
+- [ ] Se usan para llamar a una función llamada *Hello world!*.
+- [ ] Son obligatorios solo si la cadena contiene espacios.
+- [ ] Le indican a Python que imprima una variable llamada *Hello world!*.
