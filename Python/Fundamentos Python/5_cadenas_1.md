@@ -1,4 +1,4 @@
-# Cadenas, parte 1
+# Cadenas, parte 1 (Introducción)
 
 ## ¿Qué son las cadenas y qué es la inmutabilidad de las cadenas?
 
