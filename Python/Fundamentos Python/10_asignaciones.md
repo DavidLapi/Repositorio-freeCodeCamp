@@ -1,4 +1,4 @@
-# Números y operaciones matemáticas
+# Números y Operaciones Matemáticas
 
 ## ¿Cómo funcionan las asignaciones aumentadas?
 
