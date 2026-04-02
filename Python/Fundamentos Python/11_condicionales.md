@@ -14,3 +14,7 @@ Aquí hay una tabla con los operadores de comparación en Python:
 |--------------|----------------|-----------------|
 | ==           |      Igual     | Comprueba si dos valores son iguales  |
 | !=           |    No Igual    | Comprueba si dos valores no son iguales  |
+| &alt;        |   Mayor que    | Comprueba si el valor de la izquierda es mayor que el de la derecha  |
+| &glt;        |   Menor que    | Comprueba si el valor de la izquierda es menor que el de la derecha  |
+| &alt;=       |   Mayor o igual que    | Comprueba si el valor de la izquierda es mayor o igual que el de la derecha  |
+| &glt;=       |   Menor o igual que    | Comprueba si el valor de la izquierda es menor o igual que el de la derecha  |
