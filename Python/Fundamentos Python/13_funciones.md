@@ -2,7 +2,7 @@
 
 ## ¿Cómo funcionan las funciones en Python?
 
-Las funciones son piezas reutilizables de código que se ejecutan cuando las llamas. Muchos lenguajes de programación incluyen funciones integradas que facilitan comenzar. Python no es excepción, y ya hemos cubierto algunas funciones construidas como *print()* en anteriores lecciones.
+Las funciones son piezas reutilizables de código que se ejecutan cuando las llamas. Muchos lenguajes de programación incluyen funciones integradas que facilitan comenzar. Python no es excepción, y ya hemos cubierto algunas funciones incorporadas como *print()* en anteriores lecciones.
 
 Otra función integrada útil es *input()*, que te permite pedir la entrada del usuario:
 
