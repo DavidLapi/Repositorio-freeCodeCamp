@@ -4,6 +4,8 @@ Para este laboratorio, usarás sentencias condicionales para determinar si es po
 
 **Objetivo:** Cumplir con las historias de usuario a continuación y pasar todas las pruebas para completar el laboratorio.
 
+## Historias de usuario
+
 1. Debes crear las siguientes variables:
 
 - *distance_mi* (un número que representa la distancia a recorrer en millas)
