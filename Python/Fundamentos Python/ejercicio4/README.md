@@ -1,4 +1,4 @@
-# Ejercicio: Construye un calculador para reservar entradas de cine
+# Ejercicio 4: Construye un calculador para reservar entradas de cine
 
 ## Paso 1
 

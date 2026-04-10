@@ -1,4 +1,4 @@
-# Ejercicio: Construye un generador de perfiles de empleados
+# Ejercicio 2: Construye un generador de perfiles de empleados
 
 ## Paso 1
 

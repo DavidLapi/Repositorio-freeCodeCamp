@@ -1,4 +1,4 @@
-# Construye un Planificador de Clima para Viajes
+# Laboratorio 1: Construye un Planificador de Clima para Viajes
 
 Para este laboratorio, usarás sentencias condicionales para determinar si es posible desplazarte según el clima, la distancia a recorrer y la disponibilidad de un vehículo.
 

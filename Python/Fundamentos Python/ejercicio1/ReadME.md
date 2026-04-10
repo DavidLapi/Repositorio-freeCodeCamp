@@ -1,4 +1,4 @@
-# Ejercicio: Construye una impresora de boletas de calificaciones
+# Ejercicio 1: Construye una impresora de boletas de calificaciones
 
 ## Paso 1
 

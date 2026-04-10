@@ -1,4 +1,4 @@
-# Construye una función para "aplicar un descuento"
+# Laboratorio 2: Construye una función para "aplicar un descuento"
 
 En este laboratorio escribirás una función que calcula el precio final de un artículo después de aplicar un descuento porcentual.
 
