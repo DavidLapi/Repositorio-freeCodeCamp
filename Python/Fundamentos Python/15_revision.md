@@ -698,3 +698,150 @@ print(3 >= 4) # False
 print(3 <= 4) # True
 ```
 
+## Trabajando con instrucciones *if*, *elif* y *else*
+
+- **Instrucciones *if*:** Estas son condiciones utilizadas para determinar si algo es verdadero o no. Si la condición evalúa a *True*, entonces ese bloque de código se ejecutará.
+
+```py
+age = 18
+
+if age >= 18:
+    print('You are an adult') # You are an adult
+```
+
+- **Cláusula *elif*:** Estas son condiciones que vienen después de una sentencia if. Un bloque elif se ejecuta solo si todas las condiciones anteriores evalúan a False y su propia condición evalúa a *True*.
+
+```py
+age = 16
+
+if age >= 18:
+    print('You are an adult')
+elif age >= 13:
+    print('You are a teenager')  # You are a teenager
+```
+
+- **Cláusula *else*:** Esto se ejecutará si ninguna otra condición se evalúa como *True*.
+
+```py
+age = 12
+
+if age >= 18:
+    print('You are an adult')
+elif age >= 13:
+    print('You are a teenager')
+else:
+    print('You are a child')  # You are a child
+```
+
+También puedes usar sentencias *if* anidadas de esta manera:
+
+```py
+is_citizen = True
+age = 25
+
+if is_citizen:
+    if age >= 18:
+        print('You are eligible to vote') # You are eligible to vote
+else:
+    print('You are not eligible to vote')
+```
+
+## Valores 'Verdaderos' y 'Falsos'
+
+- **Definición:** En Python, cada valor tiene un valor booleano inherente o un sentido incorporado de si debe tratarse como *True* o *False* en un contexto lógico. Muchos valores se consideran verdaderos, es decir, se evalúan como *True* en un contexto lógico. Otros son falsos, lo que significa que se evalúan como *False*. Aquí hay algunos ejemplos de valores falsos:
+
+```py
+None
+False
+Integer 0
+Float 0.0
+Empty strings ''
+```
+
+Otros valores como números distintos de cero y cadenas no vacías son verdaderos.
+
+## Trabajando con la función *bool()*
+
+- **Definición:** Si deseas comprobar si un valor es verdadero o falso, puedes usar la función *bool()* incorporada. Esta convierte explícitamente un valor a su equivalente booleano y devuelve *True* para valores truthy y *False* para valores falsy. Aquí hay algunos ejemplos:
+
+```py
+print(bool(False)) # False
+print(bool(0))  # False
+print(bool('')) # False
+
+print(bool(True)) # True
+print(bool(1)) # True
+print(bool('Hello')) # True
+```
+
+## Operadores Booleanos y Cortocircuito
+
+- **Definición:** Estos son operadores especiales que te permiten combinar múltiples expresiones para crear una lógica de toma de decisiones más compleja en tu código. Hay tres operadores booleanos en Python: *and*, *or* y *not*.
+
+- ***and* Operador:** Este operador toma dos operandos y devuelve el primer operando si es falso, de lo contrario, devuelve el segundo operando. Ambos operandos deben ser truthy para que una expresión resulte en un valor truthy.
+
+```py
+is_citizen = True
+age = 25
+
+print(is_citizen and age) # 25
+```
+
+También puedes usar el operador *and* en condicionales así:
+
+```py
+is_citizen = True
+age = 25
+
+if is_citizen and age >= 18:
+    print('You are eligible to vote') # You are eligible to vote
+else:
+    print('You are not eligible to vote')
+```
+
+- ***or* Operador:** Este operador devuelve el primer operando si es verdadero, de lo contrario, devuelve el segundo operando. Una expresión con *or* resulta en un valor truthy si al menos un operando es truthy. Aquí hay un ejemplo:
+
+```py
+age = 19
+is_employed = False
+
+print(age or is_employed) # 19
+```
+
+Al igual que con el operador *and*, puedes usar el operador *or* en condicionales así:
+
+```py
+age = 19
+is_student = True
+
+if age < 18 or is_student:
+    print('You are eligible for a student discount') # You are eligible for a student discount
+else:
+    print('You are not eligible for a student discount')
+```
+
+- **Cortocircuito:** Los operadores *and* y *or* se conocen como operadores de cortocircuito. El cortocircuito significa que Python verifica los valores de izquierda a derecha y se detiene tan pronto como determina el resultado final.
+
+- ***not* Operador:** Este operador toma un solo operando e invierte su valor booleano. Convierte valores truthy en *False* y valores falsy en *True*. A diferencia de los operadores anteriores que vimos, *not* siempre devuelve *True* o *False*. Aquí hay algunos ejemplos:
+
+```py
+print(not '') # True, because empty string is falsy
+print(not 'Hello') # False, because non-empty string is truthy
+print(not 0) # True, because 0 is falsy
+print(not 1) # False, because 1 is truthy
+print(not False) # True, because False is falsy
+print(not True) # False, because True is truthy
+```
+
+Aquí hay un ejemplo del operador *not* en un condicional:
+
+```py
+is_admin = False
+
+if not is_admin:
+    print('Access denied for non-administrators.') # Access denied for non-administrators.
+else:
+    print('Welcome, Administrator!')
+```
+
+## FIN
