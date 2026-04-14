@@ -186,3 +186,515 @@ quote = "She said, \"Hello!\""
 developer = 'Jessica'
 print('My name is ' + developer + '.') # My name is Jessica.
 ```
+
+Otra forma de concatenar cadenas es usando el operador *+=*. Esto se usa para realizar la concatenación y la asignación en el mismo paso de esta manera:
+
+```py
+greeting = 'My name is '
+developer = 'Jessica.'
+
+greeting += developer
+print(greeting) # My name is Jessica.
+```
+
+- **f-strings:** Esta es una abreviatura para cadenas de formato literal. Te permite manejar la interpolación y también realizar cierta concatenación con una sintaxis compacta y legible:
+
+```py
+developer = 'Jessica'
+greeting = f'My name is {developer}.'
+print(greeting) # My name is Jessica.
+```
+
+- **Segmentación de Cadenas:** Esto ocurre cuando puedes extraer partes de una cadena. Esta es la sintáxis básica:
+
+```py
+str[start:stop:step]
+```
+
+La posición inicial representa el índice donde debe comenzar la extracción. La posición de parada es donde debe terminar el segmento. Esta posición no es inclusiva. La posición de paso representa el intervalo para el incremento en la segmentación. Aquí hay algunos ejemplos:
+
+```py
+message = 'Python is fun!'
+
+print(message[0:6])  # Python
+print(message[7:])  # is fun!
+print(message[::2])  # Pto sfn
+```
+
+- **Obtener la Longitud de una Cadena:** La función *len()* se usa para devolver el número de caracteres en la cadena:
+
+```py
+developer = 'Jessica'
+
+print(len(developer)) # 7
+```
+
+## Trabajando con el Operador *in*
+
+- **Operador *in*:** Esto devuelve un booleano que especifica si el carácter o los caracteres existen en la cadena o no:
+
+```py
+my_str = 'Hello world'
+
+print('Hello' in my_str)  # True
+print('hey' in my_str)    # False
+print('hi' in my_str)    # False
+print('e' in my_str)  # True
+print('f' in my_str)  # False
+```
+
+## Métodos Comunes de Cadenas
+
+- ***str.upper():*** Esto devuelve una nueva cadena con todos los caracteres convertidos a mayúsculas:
+
+```py
+developer = 'Jessica'
+
+print(developer.upper()) # JESSICA
+```
+
+- ***str.lower():*** Esto devuelve una nueva cadena con todos los caracteres convertidos a minúsculas:
+
+```py
+developer = 'Jessica'
+
+print(developer.lower()) # jessica
+```
+
+- ***str.strip():*** Esto devuelve una copia de la cadena con los caracteres especificados al inicio y al final eliminados (si no se pasa un argumento al método, elimina los espacios en blanco al inicio y al final).
+
+```py
+greeting = '  hello world  '
+
+trimmed_my_str = greeting.strip()
+print(trimmed_my_str)  # 'hello world'
+```
+
+- ***replace():*** Esto devuelve una nueva cadena con todas las ocurrencias de la cadena antigua reemplazadas por una nueva.
+
+```py
+greeting = 'hello world'
+
+replaced_my_str = greeting.replace('hello', 'hi')
+print(replaced_my_str)  # 'hi world'
+```
+
+- ***split():*** Esto se usa para dividir una cadena en una lista usando un separador especificado. Un separador es una cadena que indica dónde debe ocurrir la división.
+
+```py
+dashed_name = 'example-dashed-name'
+
+split_words = dashed_name.split('-')
+print(split_words)  # ['example', 'dashed', 'name']
+```
+
+- ***join():*** Esto se usa para unir elementos de un iterable en una cadena con un separador. Un iterable es una colección de elementos que se pueden recorrer como una lista, cadena o una tupla.
+
+```py
+example_list = ['example', 'dashed', 'name']
+
+joined_str = ' '.join(example_list)
+print(joined_str)  # example dashed name
+```
+
+- ***str.startswith(prefix):*** Esto devuelve un booleano que indica si una cadena comienza con el prefijo especificado:
+
+```py
+developer = 'Naomi'
+
+result = developer.startswith('N')
+print(result)  # True
+```
+
+- ***str.endswith(suffix):*** Esto devuelve un booleano que indica si una cadena termina con el sufijo especificado:
+
+```py
+developer = 'Naomi'
+
+result = developer.endswith('N')
+print(result)  # False
+```
+
+- ***str.find():*** Esto devuelve el índice de la primera aparición de una subcadena. Si no se encuentra, se devolverá -1:
+
+```py
+developer = 'Naomi'
+
+result = developer.find('N')
+print(result)  # 0
+
+city = 'Los Angeles'
+print(city.find('New')) # -1
+```
+
+- ***str.count(substring):*** Esto cuenta cuántas veces aparece una subcadena en una cadena:
+
+```py
+city = 'Los Angeles'
+print(city.count('e')) # 2
+```
+
+- ***str.capitalize():*** Esto devuelve una nueva cadena con el primer carácter en mayúscula y los demás en minúsculas:
+
+```py
+dessert = 'chocolate cake'
+print(dessert.capitalize()) # Chocolate cake
+```
+
+- ***str.isupper():*** Esto devuelve True si todas las letras en la cadena están en mayúsculas y False si no:
+
+```py
+dessert = 'chocolate cake'
+print(dessert.isupper()) # False
+```
+
+- ***str.islower():*** Esto devuelve True si todas las letras en la cadena están en minúsculas y False de lo contrario:
+
+```py
+dessert = 'chocolate cake'
+print(dessert.islower()) # True
+```
+
+- ***str.title():*** Esto devuelve una nueva cadena con la primera letra de cada palabra en mayúscula:
+
+```py
+city = 'los angeles'
+print(city.title()) # Los Angeles
+```
+
+- ***str.maketrans():*** Este método se usa para crear una tabla de mapeo de caracteres de uno a uno para la traducción. A menudo se usa con el método *translate()* que aplica esa tabla a una cadena y devuelve el resultado traducido.
+
+```py
+trans_table = str.maketrans('abc', '123')
+print(trans_table) # {97: 49, 98: 50, 99: 51}
+
+result = 'abcabc'.translate(trans_table)
+print(result)  # 123123
+```
+
+## Operaciones Comunes usadas con Enteros y Flotantes
+
+- **Operaciones Matemáticas Básicas:** En Python, puedes realizar operaciones matemáticas básicas con enteros y flotantes, incluyendo suma, resta, multiplicación y división:
+
+```py
+int_1 = 56
+int_2 = 12
+float_1 = 5.4
+float_2 = 12.0
+
+# Addition
+
+print('Integer Addition:', int_1 + int_2) # Integer Addition: 68
+print('Float Addition:', float_1 + float_2) # Float Addition: 17.4
+
+# Subtraction
+
+print('Int Subtraction:', int_1 - int_2) # Int Subtraction: 44
+print('Float Subtraction:',  float_2 - float_1) # Float Subtraction: 6.6
+
+# Multiplication
+
+print('Int Multiplication:', int_1 * int_2) # Int Multiplication: 672
+print('Float Multiplication:', float_2 * float_1) # Float Multiplication: 64.80000000000001
+
+# Division
+
+print('Int Division:', int_1 / int_2) # Int Division: 4.666666666666667
+print('Float Division:', float_2 / float_1) # Float Division: 2.222222222222222
+```
+
+Cuando sumas un flotante y un entero, el resultado se convierte en un flotante de esta manera:
+
+```py
+int_1 = 56
+float_1 = 5.4
+
+print(int_1 + float_1) # 61.4
+```
+
+- **Operador módulo (%):** Esto devuelve el resto cuando un número es dividido por otro número:
+
+```py
+int_1 = 56
+int_2 = 12
+
+print(int_1 % int_2) # 8
+```
+
+- **División de Piso (//):** Este operador se usa para dividir dos números y redondear el resultado hacia abajo al número entero más cercano:
+
+```py
+int_1 = 56
+int_2 = 12
+
+print(int_1 // int_2) # 4
+```
+
+- **Operador de Exponenciación (\*\*):** Este operador se usa para elevar un número a la potencia de otro:
+
+```py
+int_1 = 4
+int_2 = 2
+
+print(int_1 ** int_2) # 16
+```
+
+- **Función *float()*:** Puedes usar esta función para convertir un entero a flotante.
+
+```py
+num = 4
+
+print(float(num)) # 4.0
+```
+
+- **Función *int()*:** Puedes usar esta función para convertir un flotante a un entero.
+
+```py
+num = 4.0
+
+print(int(num)) # 4
+```
+
+- **Función *round()*:** Esto se utiliza para redondear un número al entero más cercano:
+
+```py
+num_1 = 3.4
+num_2 = 7.7
+
+print(round(num_1)) # 3
+print(round(num_2)) # 8
+```
+
+- **Función *abs()*:** Esto se usa para devolver el valor absoluto de un número:
+
+```py
+num = -13
+
+print(abs(num)) # 13
+```
+
+- **Función *bin()*:** Esto se usa para convertir un entero a su representación binaria como una cadena:
+
+```py
+num = 56
+
+print(bin(num))  # 0b111000
+```
+
+- **Función *oct()*:** Esto se usa para convertir un entero a su representación octal como una cadena:
+
+```py
+num = 56
+
+print(oct(num))  # 0o70
+```
+
+- **Función *hex()*:** Esto se usa para convertir un entero a su representación hexadecimal como una cadena:
+
+```py
+num = 56
+
+print(hex(num))  # 0x38
+```
+
+- **Función *pow()*:** Esto se utiliza para elevar un número a la potencia de otro:
+
+```py
+result = pow(2, 3) 
+print(result)  # 8
+```
+
+## Asignaciones Aumentadas
+
+- **Definición:** La asignación aumentada combina una operación binaria con una asignación en un solo paso. Toma una variable, le aplica una operación con otro valor y almacena el resultado nuevamente en la misma variable.
+
+```py
+# Addition assignment 
+my_var = 10
+my_var += 5
+
+print(my_var) # 15
+
+# Subtraction assignment
+count = 14
+count -= 3
+
+print(count) # 11
+
+# Multiplication assignment 
+product = 65
+product *= 7
+
+print(product) # 455
+
+# Division assignment 
+price = 100
+price /= 4
+
+print(price) # 25.0
+
+# Floor Division assignment 
+total_pages = 23
+total_pages //= 5
+
+print(total_pages) # 4
+
+# Modulo assignment 
+bits = 35
+bits %= 2
+
+print(bits) # 1
+
+# Exponentiation assignment 
+power = 2
+power **= 3
+
+print(power) # 8
+```
+
+También hay otros operadores de asignación aumentada, como los de operadores bit a bit. Incluyen *&=*, *^=*, *>>=*, y *<<=**.
+
+## Trabajando con Funciones
+
+- **Definición:** Las funciones son piezas reutilizables de código que toman entradas (argumentos) y devuelven una salida. Para llamar a una función, necesitas hacer referencia al nombre de la función seguido de un conjunto de paréntesis:
+
+```py
+# Defining a function
+
+def get_sum(num_1, num_2):
+    return num_1 + num_2
+
+result = get_sum(3, 4) # function call
+print(result) # 7
+```
+
+Si una función no devuelve un valor explícitamente, entonces el valor de retorno predeterminado es *None*:
+
+```py
+def greet():
+    print('hello') 
+
+result = greet() # hello
+print(result) # None
+```
+
+También puedes suministrar valores predeterminados a los parámetros de esta manera:
+
+```py
+def get_sum(num_1, num_2=2):
+    return num_1 + num_2
+
+result = get_sum(3) 
+print(result) # 5
+```
+
+Si llamas a la función sin el número correcto de argumentos, recibirás un *TypeError*:
+
+```py
+def calculate_sum(a, b):
+    print(a + b)
+
+calculate_sum()
+
+# TypeError: calculate_sum() missing 2 required positional arguments: 'a' and 'b'
+```
+
+## Funciones Integradas Comunes
+
+- **Función *input()*:** Esto se utiliza para pedir al usuario una entrada:
+
+```py
+name = input('What is your name?') # User types 'Kolade' and presses Enter  
+print('Hello', name) # Hello Kolade
+```
+
+- **Función *int()*:** Esto se utiliza para convertir un número, un booleano o una cadena numérica en un entero:
+
+```py
+print(int(3.14)) # 3
+print(int('42')) # 42
+print(int(True)) # 1
+print(int(False)) # 0 
+```
+
+## Alcance en Python
+
+- **Ámbito Local:** Esto sucede cuando una variable declarada dentro de una función o clase solo puede accederse dentro de esa función o clase.
+
+```py
+def my_func():
+    num = 10
+    print(num)
+```
+
+- **Ámbito Envolvente:** Esto sucede cuando una función que está anidada dentro de otra función puede acceder a las variables de la función en la que está anidada.
+
+```py
+def outer_func():
+    msg = 'Hello there!'
+    
+    def inner_func():
+        print(msg)
+    inner_func()
+
+print(outer_func()) # Hello there!
+```
+
+- **Ámbito Global:** Esto se refiere a variables que están declaradas fuera de cualquier función o clase, que pueden accederse desde cualquier lugar en el programa.
+
+```py
+tax = 0.70 
+
+def get_total(subtotal):
+    total = subtotal + (subtotal * tax)
+    return total
+
+print(get_total(100))  # 170.0
+```
+
+- **Ámbito Incorporado:** Nombres reservados en Python para funciones, módulos, palabras clave y objetos predefinidos.
+
+```py
+print(str(45)) # '45'
+print(type(3.14)) # <class 'float'>
+print(isinstance(3, str)) # False
+```
+
+## Operadores de Comparación
+
+- **Igual (*==*):** Comprueba si dos valores son iguales:
+
+```py
+print(3 == 4) # False
+```
+
+- **No igual (*!=*):** Comprueba si dos valores no son iguales:
+
+```py
+print(3 != 4) # True
+```
+
+- **Estricto mayor que (*>*):** Verifica si un valor es mayor que otro:
+
+```py
+print(3 > 4) # False
+```
+
+- **Estrictamente menor que (*<*):** Verifica si un valor es menor que otro:
+
+```py
+print(3 < 4) # True
+```
+
+- **Mayor o igual que (*>=*):** Verifica si un valor es mayor o igual que otro:
+
+```py
+print(3 >= 4) # False
+```
+
+- **Menor o igual(*<=*):** Verifica si un valor es menor o igual que otro:
+
+```py
+print(3 <= 4) # True
+```
+
