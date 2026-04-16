@@ -1,2 +1,160 @@
 # Trabajar con Bucles y Secuencias
 
+## ¿Qué son las tuplas y cómo funcionan?
+
+Una tupla es un tipo de dato de Python usado para crear una secuencia ordenada de valores. Las tuplas pueden contener un conjunto mixto de tipos de datos como este:
+
+```py
+developer = ('Alice', 34, 'Rust Developer')
+```
+
+Las tuplas son similares a las listas, pero mientras las listas son un tipo de dato mutable, las tuplas son inmutables. Esto significa que los elementos en una tupla no pueden cambiarse una vez que se ha creado.
+
+Si intenta actualizar uno de los elementos en la tupla, obtendrá un *TypeError*:
+
+```py
+programming_languages = ('Python', 'Java', 'C++', 'Rust')
+programming_languages[0] = 'JavaScript'
+
+"""
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+TypeError: 'tuple' object does not support item assignment
+"""
+```
+
+Para acceder a un elemento de una tupla, puedes usar la notación con corchetes y el número de índice:
+
+```py
+developer = ('Alice', 34, 'Rust Developer')
+developer[1] # 34
+```
+
+Si necesitas acceder a elementos comenzando desde el final de una tupla, entonces puedes usar indexación negativa. Aquí tienes un ejemplo de cómo usar un índice negativo para acceder al penúltimo elemento en una tupla:
+
+```py
+numbers = (1, 2, 3, 4, 5)
+numbers[-2] # 4
+```
+
+Si intentas pasar un número de índice que excede o es igual a la longitud de la tupla, recibirás un *IndexError* como este:
+
+```py
+numbers = (1, 2, 3, 4, 5)
+numbers[7]
+
+"""
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+IndexError: list index out of range
+"""
+```
+
+Otra forma de crear una tupla es usando el constructor **tuple()** así:
+
+```py
+developer = 'Jessica'
+tuple(developer) # ('J', 'e', 's', 's', 'i', 'c', 'a')
+```
+
+Para la estructura *tuple()*, puedes pasar diferentes iterables como cadenas, listas e incluso otras tuplas.
+
+Para verificar si un elemento está en una tupla, puedes usar la palabra clave *in* así:
+
+```py
+programming_languages = ('Python', 'Java', 'C++', 'Rust')
+
+'Rust' in programming_languages # True
+'JavaScript' in programming_languages # False
+```
+
+También puedes desempaquetar elementos de una tupla tal como lo hiciste con las listas:
+
+```py
+developer = ('Alice', 34, 'Rust Developer')
+name, age, job = developer
+
+print(name) # 'Alice'
+print(age) # 34
+print(job) # 'Rust Developer'
+```
+
+En este ejemplo, *name* tiene el valor *'Alice'*, *age* tiene el valor *34* y *job* tiene el valor *'Rust Developer'*.
+
+Si necesita recoger cualquier elemento restante de una tupla, puede usar el operador asterisco (*) de esta manera:
+
+```py
+developer = ('Alice', 34, 'Rust Developer')
+name, *rest = developer
+
+print(name) # 'Alice'
+print(rest) # [34, 'Rust Developer']
+```
+
+Aquí, *name* tiene el valor 'Alice', y *rest* es una lista compuesta por el número *34* y la cadena *'Rust Developer'*.
+
+Al igual que con una lista, puedes usar el operador de corte en una tupla para extraer una porción de ella. Aquí tienes un ejemplo de cómo extraer los elementos *'pie'* y *'cookies'* en una tupla separada:
+
+```py
+desserts = ('cake', 'pie', 'cookies', 'ice cream')
+desserts[1:3] # ('pie', 'cookies')
+```
+
+Recuerda que el primer número representa el índice inicial para la extracción mientras que el segundo número representa el índice final. Pero ten en cuenta que el elemento en el índice final no está incluido en la tupla extraída.
+
+Si necesitas eliminar un elemento de una tupla, eso no es posible porque las tuplas son inmutables. Así que este ejemplo producirá un error:
+
+```py
+developer = ('Jane Doe', 23, 'Python Developer')
+del developer[1]
+
+"""
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+TypeError: "tuple" object doesn't support item deletion
+"""
+```
+
+Entonces, ¿cuándo podrías usar una tupla en lugar de una lista?
+
+Si necesitas una colección dinámica de elementos donde puedas agregar, eliminar y actualizar elementos, entonces debes usar una lista. Si sabes que estás trabajando con una colección fija e inmutable de datos, entonces debes usar una tupla.
+
+En la próxima lección, veremos algunos métodos comunes que usarás al trabajar con tuplas.
+
+## Preguntas
+
+1. ¿Cuál será la salida en la consola?
+
+```py
+developer = ('Alice', 34, 'RustDeveloper')
+print(developer[1]) # ?
+```
+
+- [ ] 'Rust Developer'
+- [ ] IndexError
+- [X] 34
+- [ ] 'Alice'
+
+2. ¿Cuál será el resultado del siguiente código?
+
+```py
+desserts = ('cake', 'pie', 'cookies', 'ice cream')
+desserts[1:3]
+```
+
+- [ ] ('cookies', 'ice cream')
+- [ ] ('cake', 'pie')
+- [X] ('pie', 'cookies')
+- [ ] ('pie', 'ice cream')
+
+3. ¿Cuál será el resultado del siguiente código?
+
+```py
+developer = ("Jane Doe", 23, "Python Developer")
+del developer[1]
+```
+
+- [ ] El primer elemento será eliminado.
+- [X] Obtendrás un *TypeError*.
+- [ ] Obtendrás un *IndexError*.
+- [ ] El segundo elemento será eliminado.
