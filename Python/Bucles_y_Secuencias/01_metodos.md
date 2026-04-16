@@ -1,0 +1,189 @@
+# Trabajar con Bucles y Secuencias
+
+## ¿Cuáles son algunos métodos comunes utilizados para listas?
+
+En la lección anterior, se te presentó el tipo de datos lista y aprendiste cómo acceder a elementos de una lista así como el corte de listas. En esta lección, continuarás aprendiendo sobre listas y algunos métodos comunes asociados con ellas como *append()*, *pop()* y *sort()*.
+
+El primer método que veremos es el método **append()**. Este se usa para agregar un elemento al final de la lista. Aquí tienes un ejemplo de cómo usar el método *append()* para agregar el número *6* a la lista de números:
+
+```py
+numbers = [1, 2, 3, 4, 5]
+numbers.append(6)
+print(numbers) # [1, 2, 3, 4, 5, 6]
+```
+
+Si quieres agregar una lista al final de otra, también puedes usar el método *append()* así:
+
+```py
+numbers = [1, 2, 3, 4, 5]
+even_numbers = [6, 8, 10]
+
+numbers.append(even_numbers)
+print(numbers) # [1, 2, 3, 4, 5, [6, 8, 10]]
+```
+
+Observa cómo toda la lista *even_numbers* está anidada dentro de la lista *numbers*.
+
+Pero si quieres agregar todos los números individuales de la lista *even_numbers* al final de la lista *numbers*, entonces puedes usar el método **extend()**.
+
+El método **extend()** es similar al método *append()*, pero con *extend()* puedes agregar múltiples elementos de una lista a otra. Aquí tienes un ejemplo de cómo agregar los números *6*, *8* y *10* de una lista al final de la lista *numbers*:
+
+```py
+numbers = [1, 2, 3, 4, 5]
+even_numbers = [6, 8, 10]
+
+numbers.extend(even_numbers)
+print(numbers) # [1, 2, 3, 4, 5, 6, 8, 10]
+```
+
+Como puedes ver, la lista anidada ha desaparecido y ahora es solo una lista de números.
+
+Para insertar un elemento en un índice específico de una lista, puedes usar el método **insert()**. Este método acepta dos argumentos: el índice donde deseas insertar el nuevo elemento y el elemento que quieres insertar.
+
+Aquí hay un ejemplo de cómo usar el método *insert()*:
+
+```py
+numbers = [1, 2, 3, 4, 5]
+numbers.insert(2, 2.5)
+
+print(numbers) # [1, 2, 2.5, 3, 4, 5]
+```
+
+El siguiente código insertará el número *2.5* en el índice *2* de la lista *numbers*.
+
+Si quieres eliminar un elemento de una lista, puedes usar el método **remove()**. El método *remove()* toma el valor del elemento a eliminar como argumento:
+
+```py
+numbers = [10, 20, 30, 40, 50, 50]
+numbers.remove(50)
+
+print(numbers) # [10, 20, 30, 40, 50]
+```
+
+Es importante notar que este método solo eliminará la primera ocurrencia de un ítem. No todas ellas:
+
+```py
+numbers = [10, 20, 30, 40, 50, 50, 50]
+numbers.remove(50)
+
+print(numbers) # [10, 20, 30, 40, 50, 50]
+```
+
+Para eliminar un elemento en un índice específico de la lista, puedes usar el método **pop()** así:
+
+```py
+numbers = [1, 2, 3, 4, 5]
+numbers.pop(1) # The number 2 is returned
+```
+
+Si no especifica un elemento para el método *pop*, entonces se elimina el último elemento.
+
+```py
+numbers = [1, 2, 3, 4, 5]
+numbers.pop() # The number 5 is returned
+```
+
+Si necesitas vaciar la lista, entonces puedes usar el método **clear()** así:
+
+```py
+numbers = [1, 2, 3, 4, 5]
+numbers.clear()
+
+print(numbers) # []
+```
+
+El siguiente método que vamos a revisar es el método **sort()**. Este método se usa para ordenar los elementos en el lugar. Aquí tienes un ejemplo de cómo ordenar una lista aleatoria de números en el lugar:
+
+```py
+numbers = [19, 2, 35, 1, 67, 41]
+numbers.sort()
+
+print(numbers) # [1, 2, 19, 35, 41, 67]
+```
+
+A diferencia del método *sort()*, existe la función **sorted()** que funciona para cualquier iterable y devuelve una nueva lista ordenada en lugar de modificar la lista original. Por ejemplo:
+
+```py
+numbers = [19, 2, 35, 1, 67, 41]
+sorted_numbers = sorted(numbers)
+
+print(numbers) # [19, 2, 35, 1, 67, 41]
+print(sorted_numbers) # [1, 2, 19, 35, 41, 67]
+```
+
+Como recordatorio, un iterable es un tipo especial de objeto sobre el que puedes iterar, permitiéndote acceder a cada elemento uno a la vez. Aprenderás más sobre cómo funcionan los bucles en Python en una lección futura.
+
+Tanto el método *sort()* como la función *sorted()* aceptan parámetros opcionales *key* y *reverse*. Aprenderás más sobre estos parámetros opcionales en una lección futura cuando estudies las tuplas. También aprenderás más sobre otras funciones integradas como *sorted()* en lecciones futuras.
+
+El siguiente método que vamos a ver es el método **reverse()**. Este método invertirá una lista de elementos en el lugar así:
+
+```py
+numbers = [6, 5, 4, 3, 2, 1]
+numbers.reverse()
+
+print(numbers) # [1, 2, 3, 4, 5, 6]
+```
+
+El último método que veremos es el método **index**. Este se usa para encontrar el primer índice donde se puede encontrar un elemento en una lista. Aquí tienes un ejemplo de cómo usar el método *index* para encontrar el lenguaje *'Java'* en una lista *programming_languages*:
+
+```py
+programming_languages = ['Rust', 'Java', 'Python', 'C++']
+programming_languages.index('Java') # 1
+```
+
+Si no se puede encontrar el elemento, entonces Python lanza un *'ValueError'*:
+
+```py
+programming_languages = ['Rust', 'Java', 'Python', 'C++']
+programming_languages.index('JavaScript')
+
+"""
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: 'JavaScript' is not in list
+"""
+```
+
+Hay algunos métodos más para las listas de Python, pero esta lista inicial de métodos es un buen punto para comenzar.
+
+## Preguntas
+
+1. ¿Cuál de los siguientes ejemplos insertará correctamente el número 2.5 en el índice 2 en la lista de números?
+
+- [ ] 
+```py
+numbers = [1, 2, 3, 4, 5]
+numbers.insertInto(2.5, 2)
+```
+
+- [X] 
+```py
+numbers = [1, 2, 3, 4, 5]
+numbers.insert(2, 2.5)
+```
+
+- [ ]
+```py
+numbers = [1, 2, 3, 4, 5]
+numbers.insertInto(2, 2.5)
+```
+
+- [ ] 
+```py
+numbers = [1, 2, 3, 4, 5]
+numbers.insert(2.5, 2)
+```
+
+2. ¿Cuál de los siguientes métodos invertirá una lista de elementos en el lugar?
+
+- [X] reverse()
+- [ ] reversing()
+- [ ] reversedList()
+- [ ] reversingList()
+
+3. ¿Cuál de los siguientes NO es un método de lista?
+
+- [ ] pop()
+- [ ] clear()
+- [X] splice()
+- [ ] append()
