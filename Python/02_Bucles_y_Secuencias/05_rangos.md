@@ -1,0 +1,95 @@
+# Trabajar con Bucles y Secuencias
+
+## ¿Qué son los rangos y cómo puedes utilizarlos en un bucle?
+
+La función **range()** se usa para generar una secuencia de enteros. Aquí está la sintaxis básica para la función *range()*:
+
+```bash
+range(start, stop, step)
+```
+
+El argumento obligatorio **stop** es un entero que representa el punto final para la secuencia de números que se está generando. Aquí tienes un ejemplo de cómo usar la función *range()*:
+
+```py
+for num in range(3):
+    print(num)
+```
+
+El siguiente código genera una secuencia de números entre 0 y 2. El entero 3 no está incluido porque el argumento *stop* no es inclusivo.
+
+Si no se especifica un argumento **start**, entonces el valor predeterminado es 0. De lo contrario, puedes usar el argumento opcional *start* para comenzar la secuencia de enteros en un número entero distinto de 0. Aquí tienes un ejemplo de cómo generar una secuencia de enteros entre 1 y 4:
+
+```py
+for num in range(1, 5):
+    print(num)
+```
+
+Por defecto, la secuencia de enteros incrementará en 1. Pero si quieres cambiar ese valor predeterminado, puedes usar el argumento opcional **step**. Aquí tienes un ejemplo de cómo generar una secuencia de enteros pares entre 2 y 10:
+
+```py
+for num in range(2, 11, 2):
+    print(num)
+```
+
+Como se mencionó antes, solo hay un argumento obligatorio para la función *range()*. Si no proporcionas ningún argumento a *range()*, entonces obtendrás un *TypeError*:
+
+```py
+ERROR!
+Traceback (most recent call last):
+  File "<main.py>", line 1, in <module>
+TypeError: range expected at least 1 argument, got 0
+```
+
+Es importante notar que la función *range()* solo acepta enteros como argumentos, no floats. Recuerda que los floats son números con puntos decimales como *'3.4'*. Si intentas pasar floats como argumentos, obtendrás un *TypeError*:
+
+```py
+ERROR!
+Traceback (most recent call last):
+  File "<main.py>", line 1, in <module>
+TypeError: 'float' object cannot be interpreted as an integer
+```
+
+Si quieres generar una secuencia de enteros en orden decreciente, entonces puedes usar un entero negativo para el argumento *step*, así:
+
+```py
+for num in range(40, 0, -10):
+    print(num)
+```
+
+El siguiente código imprime los números *40, 30, 20 y 10* en ese orden en la consola.
+
+Otra cosa que puedes hacer con la función *range()* es crear una lista de enteros usándola con la estructura **list**. La estructura **list** se usa para convertir un iterable en una lista. Aquí tienes un ejemplo de cómo generar una lista de enteros pares entre *2* y *10*:
+
+```py
+numbers = list(range(2, 11, 2))
+print(numbers) # [2, 4, 6, 8, 10]
+```
+
+La función *range()* es una forma muy útil de generar una secuencia de enteros en Python. Una vez que le agarras el truco, probablemente te encontrarás usándola mucho en tus programas de Python.
+
+## Preguntas
+
+1. ¿Para qué se utiliza la función *range()*?
+
+- [ ] Para generar una lista de listas.
+- [ ] Para generar una lista de cadenas.
+- [X] Para generar una secuencia de enteros.
+- [ ] Para generar una lista de caracteres.
+
+2. ¿Cuál de los siguientes es el único argumento requerido para la función *range()*?
+
+- [X] stop
+- [ ] start
+- [ ] step
+- [ ] index
+
+3. ¿Cuál de los siguientes errores se devolverá del siguiente código?
+
+```py
+range()
+```
+
+- [ ] IndexError
+- [ ] RangeError
+- [X] TypeError
+- [ ] SyntaxError
