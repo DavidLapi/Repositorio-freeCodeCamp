@@ -1,0 +1,137 @@
+# Trabajar con Bucles y Secuencias
+
+## ¿Cuáles son algunos métodos comunes para las tuplas?
+
+En la lección anterior, aprendiste cómo trabajar con el tipo de datos tuple. En esta lección, aprenderás sobre algunos métodos comunes que usarás al trabajar con tuples.
+
+El primer método que cubriremos es **count()**. Este método se usa para determinar cuántas veces aparece un elemento en una tupla. Aquí tienes un ejemplo de cómo verificar cuántas veces aparece la cadena *'Rust'* en una tupla llamada *programming_languages*:
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')
+programming_languages.count('Rust') # 2
+```
+
+Como *'Rust'* aparece dos veces en la tupla, el método *count()* devuelve el número *2*. Si el elemento especificado en la función *count()* no está presente en la tupla, entonces el valor devuelto es *0*:
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')
+programming_languages.count('JavaScript') # 0
+```
+
+Si no se pasan argumentos a la función *count()*, entonces Python genera un *TypeError*:
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')
+programming_languages.count()
+
+"""
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+TypeError: tuple.count() takes exactly one argument (0 given)
+"""
+```
+
+El siguiente método que veremos es el método **index()**. Este método se usa para encontrar el índice donde un elemento particular está presente en una tupla. Aquí tienes un ejemplo de cómo usar el método *index()* para encontrar el índice de la cadena *'Java'*:
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')
+programming_languages.index('Java') # 1
+```
+
+Si no se puede encontrar el ítem especificado, entonces Python genera un *ValueError*:
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')
+programming_languages.index('JavaScript')
+
+"""
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+ValueError: tuple.index(x): x not in tuple
+"""
+```
+
+Otra cosa que puedes hacer con el método *index()* es pasar argumentos opcionales de índice de inicio y fin. Aquí tienes un ejemplo de cómo pasar un índice de inicio opcional:
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+programming_languages.index('Python', 3) # 5
+```
+
+En este ejemplo, estamos especificando dónde comenzar a buscar la cadena *'Python'*. Al pasar el número *3* como segundo argumento a la función *index()*, estamos indicando que la búsqueda comience en el índice *3*. Dado que *'Python'* aparece dos veces en la tupla, la función *index()* devolverá el índice *5* en lugar del índice *2* debido al uso del argumento opcional de índice de inicio.
+
+También puedes pasar un índice de parada opcional. Aquí tienes un ejemplo modificado de cómo especificar un índice de inicio y de parada:
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python', 'JavaScript', 'Python')
+programming_languages.index('Python', 2, 5) # 2
+```
+
+Ahora el resultado es el índice *2* porque estamos comenzando la búsqueda en el índice *2* y buscando hasta, pero sin incluir, el índice *5*.
+
+Otra función comúnmente usada con tuplas es la función **sorted()**. En una lección anterior aprendiste sobre el método *sort()* para listas. Bueno, la función *sorted()* se puede usar en cualquier iterable, incluidas las tuplas.
+
+Aquí hay un ejemplo de cómo crear una nueva lista de números usando la función *sorted()*:
+
+```py
+numbers = (13, 2, 78, 3, 45, 67, 18, 7)
+sorted(numbers) # [2, 3, 7, 13, 18, 45, 67, 78]
+```
+
+La función *sorted()* siempre creará una nueva lista con los valores ordenados. Esto difiere del método *sort()*, que ordena los elementos de una lista en el lugar y no devuelve una nueva lista.
+
+Si necesitas personalizar el comportamiento de ordenamiento para un iterable, puedes usar los argumentos opcionales *reverse* y *key*. Aquí tienes un ejemplo de cómo usar el argumento *key* para ordenar elementos en una tupla por longitud:
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+sorted(programming_languages, key=len)
+
+# Result
+# ['C++', 'Rust', 'Java', 'Rust', 'Python', 'Python']
+```
+
+Si quieres crear una nueva lista de valores en orden inverso, entonces puedes usar el argumento **reverse** así:
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+
+print(sorted(programming_languages, reverse=True))
+
+# Result
+# ['Rust', 'Rust', 'Python', 'Python', 'Java', 'C++']
+```
+
+Las tuplas son un tipo de dato común en Python. Entender cómo trabajar con ellas, junto con algunos métodos y funciones útiles, te ayudará a escribir código más eficiente.
+
+## Preguntas
+
+1. ¿Qué devolverá el siguiente código?
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')
+programming_languages.count('Rust')
+```
+
+- [X] 2
+- [ ] 1
+- [ ] 0
+- [ ] 3
+
+2. ¿Cuál será el resultado del siguiente código?
+
+```py
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')
+programming_languages.index('JavaScript')
+```
+
+- [ ] IndexError
+- [ ] RangeError
+- [X] ValueError
+- [ ] SyntaxError
+
+3. ¿Cuál de las siguientes funciones se utiliza para devolver una nueva lista de resultados ordenados a partir de un iterable?
+
+- [ ] sortd()
+- [ ] sorting()
+- [ ] sort()
+- [X] sorted()
