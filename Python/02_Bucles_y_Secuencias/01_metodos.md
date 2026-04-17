@@ -150,25 +150,25 @@ Hay algunos métodos más para las listas de Python, pero esta lista inicial de 
 
 1. ¿Cuál de los siguientes ejemplos insertará correctamente el número 2.5 en el índice 2 en la lista de números?
 
-- [ ] 
+- [ ] 1
 ```py
 numbers = [1, 2, 3, 4, 5]
 numbers.insertInto(2.5, 2)
 ```
 
-- [X] 
+- [X] 2
 ```py
 numbers = [1, 2, 3, 4, 5]
 numbers.insert(2, 2.5)
 ```
 
-- [ ]
+- [ ] 3
 ```py
 numbers = [1, 2, 3, 4, 5]
 numbers.insertInto(2, 2.5)
 ```
 
-- [ ] 
+- [ ] 4
 ```py
 numbers = [1, 2, 3, 4, 5]
 numbers.insert(2.5, 2)
