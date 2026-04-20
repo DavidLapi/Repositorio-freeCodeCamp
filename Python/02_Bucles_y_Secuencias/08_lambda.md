@@ -1,0 +1,101 @@
+# Trabajando con Bucles y Secuencias
+
+## ¿Qué son las funciones Lambda y cómo funcionan?
+
+A lo largo de las lecciones anteriores, te has acostumbrado a definir funciones usando la palabra clave *def* así:
+
+```py
+def square(num):
+    return num ** 2
+
+print(square(4)) # 16
+```
+
+Pero cuando se trata de trabajar con funciones de orden superior como *map()* y *filter()*, puedes usar una función anónima en línea. Aquí es donde entran las funciones **lambda**.
+
+Así es como se ve la función *square()* cuando se refactoriza en una función **lambda**:
+
+```py
+lambda num: num ** 2
+```
+
+Como se mencionó antes, las funciones **lambda** son anónimas, por lo que esta función ya no tiene el nombre *square* asociado. Las funciones **lambda** son ideales cuando necesitas usarlas en funciones de orden superior como esta:
+
+```py
+numbers = [1, 2, 3, 4, 5]
+
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)  # [2, 4]
+```
+
+En este ejemplo, tenemos una lista de números y queremos crear una nueva lista de números pares. Entonces, pasamos una función **lambda** como uno de los argumentos a la función *filter()* para obtener una nueva lista que contiene los números *2* y *4*.
+
+Al trabajar con funciones **lambda**, es importante estar al tanto de las mejores prácticas. Por ejemplo, no es buena práctica asignar una función lambda a una variable de esta manera:
+
+```py
+numbers = [1, 2, 3, 4, 5]
+
+square = lambda x: x ** 2
+squared_numbers = list(map(square, numbers))
+print(squared_numbers) # [1, 4, 9, 16, 25]
+```
+
+Esto va en contra del propósito de usar funciones anónimas. En este caso, deberías usar una función regular, así:
+
+```py
+numbers = [1, 2, 3, 4, 5]
+
+def square(num):
+    return num ** 2
+
+squared_numbers = list(map(square, numbers))
+print(squared_numbers) # [1, 4, 9, 16, 25]
+```
+
+Además, debes evitar crear funciones lambda que sean difíciles de leer o innecesariamente complicadas, como esta:
+
+```py
+result = (lambda x: (x**2 + 2*x - 1) if x > 0 else (x**3 - x + 4))(3)
+print(result)  # 14
+```
+
+Aunque esta función se ejecuta bien y produce el resultado correcto de *14*, no es fácil de leer ni de entender. En este caso, sería mejor crear una función separada con una estructura *if/else*, y luego llamar a esa función:
+
+```py
+def calculate_expression(x):
+    if x > 0:
+        return x**2 + 2*x - 1
+    else:
+        return x**3 - x + 4
+
+print(calculate_expression(3))  # 14
+```
+
+Tanto las funciones regulares como las funciones lambda tienen sus casos de uso en programas de Python. Si estás trabajando con una sola expresión en línea, entonces podrías considerar usar una función lambda. De lo contrario, usar una función regular sería la mejor opción.
+
+## Preguntas
+
+1. ¿Cuál de los siguientes es el mejor caso de uso para una función lambda?
+
+- [ ] Definir una función con múltiples líneas y lógica condicional.
+- [ ] Crear una función reutilizable en varios módulos.
+- [X] Escribir una función pequeña para usar dentro de una llamada **map()** o **filter()**.
+- [ ] Crear una función con un nombre descriptivo para mayor claridad.
+
+2. ¿Por qué generalmente se considera una mala práctica asignar una función lambda a una variable?
+
+- [ ] Resulta en errores de sintaxis.
+- [X] Anula el propósito de usar una función anónima.
+- [ ] Las funciones lambda son más lentas que las funciones regulares.
+- [ ] Python no permite esto en la mayoría de las versiones.
+
+3. ¿Cuál es la principal desventaja de usar una función lambda compleja como la que se muestra abajo?
+
+```py
+result = (lambda x: (x**2 + 2*x - 1) if x > 0 else (x**3 - x + 4))(3)
+```
+
+- [ ] Hace que el código sea más legible.
+- [ ] Podría conducir a un comportamiento inesperado debido a la ambigüedad.
+- [X] Es más dificil de entender y mantener.
+- [ ] Requiere demasiados recursos para ejecutarse.
