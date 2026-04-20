@@ -1,6 +1,6 @@
 # Trabajando con Bucles y Secuencias
 
-## Cuáles son las funciones Enumerate y Zip y cómo funcionan?
+## ¿Cuáles son las funciones Enumerate y Zip y cómo funcionan?
 
 En lecciones anteriores aprendiste cómo trabajar con el bucle *for*, que se usa para repetir un bloque de código un número determinado de veces. Aquí tienes un ejemplo de cómo usar un bucle *for* para imprimir cada lenguaje de la lista *languages* en la consola:
 

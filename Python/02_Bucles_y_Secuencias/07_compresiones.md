@@ -1,0 +1,144 @@
+# Trabajando con Bucles y Secuencias
+
+## ¿Qué son las comprensiones de listas y cuáles son algunas funciones útiles para trabajar con listas?
+
+Durante las últimas lecciones, te has estado familiarizando con el trabajo con bucles como este:
+
+```py
+even_numbers = []
+
+for num in range(21):
+    if num % 2 == 0:
+        even_numbers.append(num)
+
+print(even_numbers)
+```
+
+Este ejemplo crea una nueva lista vacía llamada *even_numbers* y recorre una secuencia de números entre *0* y *20*. Dentro del ciclo, hay una condición que verifica si el número actual tiene un residuo de *0* al dividirse por *2*. Esto se usa para determinar si el número es par. Si la condición es *True*, entonces el *num* actual se agrega al final de la lista *even_numbers*. Finalmente, imprimimos la lista *even_numbers* en la consola.
+
+Aunque este código funciona, hay una forma más concisa de escribirlo que utiliza comprensión de listas. La comprensión de listas te permite crear una nueva lista en una sola línea combinando un bucle y una condición directamente dentro de corchetes. Esto hace que el código sea más corto y, a menudo, más fácil de leer.
+
+Aquí está el ejemplo refactorizado de antes usando corchetes:
+
+```py
+even_numbers = [num for num in range(21) if num % 2 == 0]
+print(even_numbers)
+```
+
+En este ejemplo refactorizado, la lista *even_numbers* se crea usando una sola línea de código. La comprensión de listas recorre los números desde *0* hasta *20* e incluye solo aquellos que son divisibles por *2*. Este enfoque es más compacto y elimina la necesidad de un ciclo y un bloque condicional separados.
+
+Veamos otro ejemplo para que puedas entender mejor cómo funciona la comprensión de listas:
+
+```py
+numbers = [1, 2, 3, 4, 5]
+result = [(num, 'Even') if num % 2 == 0 else (num, 'Odd') for num in numbers]
+print(result)
+```
+
+En este ejemplo, tenemos una lista de números y queremos crear una nueva lista de tuplas que indiquen cuáles números son pares o impares. En la primera parte de la comprensión de listas, usamos una sentencia *if* para verificar si el número es divisible por *2*. Si es así, entonces el resultado es una tupla con ese número seguido de la palabra *'Even'*. De lo contrario, el resultado es una tupla con el número seguido de la palabra *'Odd'*.
+
+Aquí está cómo se ve el resultado impreso en la consola:
+
+```py
+[(1, 'Odd'), (2, 'Even'), (3, 'Odd'), (4, 'Even'), (5, 'Odd')]
+```
+
+Otra forma de crear una lista a partir de un iterable existente es la función **filter()**. Aquí tienes un ejemplo de cómo crear una nueva lista con solo palabras de más de cuatro caracteres:
+
+```py
+words = ['tree', 'sky', 'mountain', 'river', 'cloud', 'sun']
+
+def is_long_word(word):
+    return len(word) > 4
+
+long_words = list(filter(is_long_word, words))
+print(long_words) # ['mountain', 'river', 'cloud']
+```
+
+La función **filter()** se usa para seleccionar elementos de un iterable que cumplen una condición específica. La función *filter()* acepta una función y un iterable como argumentos. En este ejemplo, estamos pasando una función *is_long_word* a la función *filter()* para verificar si el conteo actual de palabras es mayor que *4*. Todas las palabras que tienen un conteo de caracteres mayor que 4 se agregan a una nueva lista y se asignan a la variable *long_words*.
+
+Además de la función *filter()*, hay algunas funciones más que son útiles cuando trabajas con listas. Otra función que debes conocer es la función **map()**, que toma un iterable y aplica una función a cada uno de sus elementos. Aquí tienes un ejemplo de cómo usar la función *map()* para convertir una lista de temperaturas de Celsius a Fahrenheit:
+
+```py
+celsius = [0, 10, 20, 30, 40]
+
+def to_fahrenheit(temp):
+    return (temp * 9/5) + 32
+
+fahrenheit = list(map(to_fahrenheit, celsius))
+print(fahrenheit) # [32.0, 50.0, 68.0, 86.0, 104.0]
+```
+
+Al igual que la función *filter()*, **map()** acepta una función y un iterable como argumentos. La función *to_fahrenheit* toma una temperatura y la convierte de Celsius a Fahrenheit.
+
+La última función que veremos es la función **sum()**. Esta función se usa para obtener la suma de un iterable como una lista o una tupla. Aquí tienes un ejemplo de cómo usar la función *sum()*:
+
+```py
+numbers = [5, 10, 15, 20]
+total = sum(numbers)
+print(total) # Result: 50
+```
+
+También puede pasar un argumento opcional **start** que establece el valor inicial para la suma. Aquí hay un ejemplo actualizado usando el argumento *start* como un argumento posicional:
+
+```py
+numbers = [5, 10, 15, 20]
+total = sum(numbers, 10) # positional argument
+print(total) # 60
+```
+
+También puede optar por usar el argumento *start* como un argumento de palabra clave en lugar de esto:
+
+```py
+numbers = [5, 10, 15, 20]
+total = sum(numbers, start=10) # keyword argument
+print(total) # 60
+```
+
+Ambas versiones producirán el mismo resultado, pero el argumento de palabra clave es un poco más explícito.
+
+La comprensión de listas, así como otras funciones como *map()*, *filter()* y *sum()*, pueden parecer un poco confusas al principio. Pero con suficiente práctica y tiempo, comenzarás a sentirte más cómodo usándolas en tus programas de Python.
+
+## Preguntas
+
+1. ¿Cuál de las siguientes es la manera correcta de utilizar la comprensión de listas?
+
+- [ ] 
+```py 
+[while for loop num in range(21)]
+```
+
+- [X] 
+```py
+[num for num in range(21) if num % 2 == 0]
+```
+
+- [ ] 
+```py
+[num for num]
+```
+
+- [ ] 
+```py
+[for num in range(21) if num % 2 == 0]
+```
+
+2. ¿Cuál de las siguientes funciones toma un iterable y aplica una función a cada uno de sus elementos?
+
+- [ ] memoryview
+- [X] map
+- [ ] max
+- [ ] min
+
+3. ¿Qué se imprimirá en la consola?
+
+```py
+numbers = [5, 10, 15, 20]
+total = sum(numbers, start=10)
+print(total) # ?
+```
+
+- [X] 60
+- [ ] 50
+- [ ] 40
+- [ ] 70
