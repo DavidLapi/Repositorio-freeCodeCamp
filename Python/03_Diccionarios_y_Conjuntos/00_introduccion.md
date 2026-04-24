@@ -1,0 +1,172 @@
+# Trabajar con Diccionarios y Conjuntos
+
+## ¿Qué son los diccionarios y cómo funcionan?
+
+En Python, los diccionarios son estructuras de datos integradas que almacenan colecciones de pares clave-valor. Funcionan de manera muy similar a los diccionarios reales, donde buscas una palabra para encontrar su significado correspondiente.
+
+Con los diccionarios de Python, usas una clave para encontrar su valor correspondiente. Debes usar diccionarios cuando necesites asociar valores a claves únicas. Esto es útil cuando necesitas encontrar un valor rápidamente basado en la clave, y cuando necesitas representar datos estructurados.
+
+Esta es la sintaxis general de un diccionario en Python:
+
+```py
+dictionary = {
+    key1: value1,
+    key2: value2
+}
+```
+
+Primero, encontramos la variable que contiene el diccionario. No es necesario asignar el diccionario a una variable, pero es muy común hacerlo para mantenerlo en memoria y usarlo más adelante en el código.
+
+Luego vienen las llaves, que a veces se llaman corchetes rizados. Y dentro de las llaves, hay pares clave-valor.
+
+Cada clave está asociada con un valor, por lo que puedes usar la clave para acceder a ese valor. Después de cada valor, excepto el último, hay una coma para separar los diferentes pares clave-valor. Las claves deben ser únicas en el diccionario y deben ser un tipo de dato inmutable. Sin embargo, los valores pueden repetirse y pueden ser de cualquier tipo de dato.
+
+Aquí tenemos un ejemplo de un diccionario que almacena información sobre una receta de pizza Margherita:
+
+```py
+pizza = {
+    'name': 'Margherita Pizza',
+    'price': 8.9,
+    'calories_per_slice': 250,
+    'toppings': ['mozzarella', 'basil']
+}
+```
+
+El diccionario se asigna a la variable **pizza**. Tiene cuatro pares clave-valor: **name**, **price**, **calories_per_slice** y **toppings**.
+
+Otra alternativa sería usar el constructor **dict()**, que estructura el diccionario a partir de una secuencia de pares clave-valor.
+
+Esta sería la sintaxis equivalente para nuestro ejemplo de pizza. Pasamos una lista de tuplas como argumento al constructor **dict()**. Estas tuplas contienen la clave como el primer elemento y el valor como el segundo elemento.
+
+```py
+pizza = dict([('name', 'Margherita Pizza'), ('price', 8.9), ('calories_per_slice', 250), ('toppings', ['mozzarella', 'basil'])])
+```
+
+Para acceder al valor de un par clave-valor, puedes usar esta sintaxis, conocida como notación de corchetes. Es el nombre de la variable que contiene el diccionario, seguido de corchetes cuadrados, y la clave que quieres acceder dentro de los corchetes cuadrados:
+
+```py
+dictionary[key]
+```
+
+En nuestro ejemplo de pizza, si quieres acceder al valor de **name**, escribirías el nombre de la variable, **pizza**, seguido de corchetes, y la clave, **name**, entre comillas:
+
+```py
+pizza['name']
+```
+
+Esto evaluará a:
+
+**'Margherita Pizza'**
+
+Para actualizar un valor, solo necesitas agregar el operador de asignación, seguido del nuevo valor.
+
+Si la clave no existe en el diccionario, se creará un nuevo par clave-valor. En las versiones recientes de Python, los diccionarios preservan el orden de inserción. Esto es útil cuando necesitas iterar sobre el diccionario:
+
+```py
+pizza['name'] = 'Margherita'
+```
+
+Ahora el valor de la clave **name** es **'Margherita'**:
+
+```py
+print(pizza['name']) # 'Margherita'
+```
+
+Los diccionarios también tienen métodos útiles para realizar operaciones comunes.
+
+El método **.get()** recupera el valor asociado con una clave. Es similar a la notación de corchetes que acabamos de usar, pero su ventaja es que puedes establecer un valor predeterminado, así no obtendrás un error si la clave no existe:
+
+```py
+dictionary.get(key, default)
+```
+
+En este ejemplo, si la clave **toppings** no existe, devolverá una lista vacía, que es el valor predeterminado que estamos pasando aquí como segundo argumento. Pero si **toppings** sí existe, devolverá ese valor:
+
+```py
+pizza.get('toppings', []) # ['mozzarella', 'basil']
+```
+
+Los métodos **.keys()** y **.values()** devuelven un objeto vista con todas las claves y valores en el diccionario, respectivamente:
+
+```py
+pizza.keys()
+# dict_keys(['name', 'price', 'calories_per_slice'])
+
+pizza.values()
+# dict_values(['Margherita Pizza', 8.9, 250])
+```
+
+Un objeto **view** es solo una forma de ver el contenido de un diccionario sin crear una copia separada de los datos.
+
+El método **.items()** devuelve un objeto vista con todos los pares clave-valor en el diccionario, incluyendo tanto las claves como los valores:
+
+```py
+pizza.items()
+# dict_items([('name', 'Margherita Pizza'), ('price', 8.9), ('calories_per_slice', 250)])
+```
+
+El método **.clear()** elimina todos los pares clave-valor del diccionario:
+
+```py
+pizza.clear()
+```
+
+El método **.pop()** elimina el par clave-valor con la clave que especificas como primer argumento y devuelve su valor. Si la clave no existe, devuelve el valor predeterminado que especificas como segundo argumento. Si la clave no existe y no pasas un valor predeterminado, se genera un **KeyError**:
+
+```py
+pizza.pop('price', 10)
+pizza.pop('total_price') # KeyError
+```
+
+En Python 3.7 y versiones más recientes, el método **.popitem()** elimina el último elemento insertado:
+
+```py
+pizza.popitem()
+```
+
+Y finalmente, el método **.update()** actualiza los pares clave-valor con los pares clave-valor de otro diccionario. Si tienen claves en común, sus valores son sobrescritos.
+
+En este ejemplo, estamos actualizando el diccionario **pizza**. La clave **price** existe en ambos, por lo que su valor será reemplazado por **15**.
+
+Pero **total_time** es nuevo, así que se añadirá al diccionario **pizza** como un nuevo par clave-valor:
+
+```py
+pizza.update({ 'price': 15, 'total_time': 25 })
+```
+
+Este es el nuevo diccionario con el **price** actualizado y el nuevo **total_time**. Observa cómo el **price** ahora es **15** y **total_time** es un nuevo par clave-valor:
+
+```py
+{
+    'name': 'Margherita Pizza', 
+    'price': 15, 
+    'calories_per_slice': 250, 
+    'toppings': ['mozzarella', 'basil'], 
+    'total_time': 25
+}
+```
+
+Estos son algunos de los métodos de diccionario más comúnmente usados, pero hay muchos más. Elegir el correcto puede ser útil para realizar operaciones complejas de manera eficiente.
+
+## Preguntas
+
+1. ¿Cómo se organizan y acceden principalmente los elementos en un diccionario de Python?
+
+- [ ] Usando índices secuenciales, como una lista.
+- [X] Usando pares clave-valor, donde las claves son únicas.
+- [ ] Usando una estructura tipo árbol, similar a los sistemas de archivos.
+- [ ] Usando una lista enlazada, donde los elementos apuntn al siguiente.
+
+2. ¿Cuál es la característica principal de un diccionario de Python que lo hace diferente de una lista o tupla?
+
+- [ ] Los diccionarios crean duplicados de todos los pares clave-valor.
+- [ ] Los diccionarios son mutables.
+- [X] Los diccionarios permiten búsquedas rápidas usando claves.
+- [ ] Los diccionarios pueden almacenar valores duplicados.
+
+3. ¿Qué método de diccionario se usa para obtener un valor asociado con una clave y proporcionar un valor predeterminado si la clave no se encuentra?
+
+- [ ] .keys()
+- [ ] .values()
+- [ ] .pop()
+- [X] .get()
