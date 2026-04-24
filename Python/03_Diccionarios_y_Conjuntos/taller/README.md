@@ -68,6 +68,7 @@ Crea un bucle **for** que itere sobre **data**. Usa la función **enumerate** pa
 Por ahora usa **pass** para llenar el cuerpo del ciclo.
 
 ```py
+# Código de muestra
 for index, dictionary in enumerate(data):
         pass
 ```
@@ -86,3 +87,98 @@ if not isinstance(dictionary, dict):
 ```
 
 ## Paso 10
+
+Después de tu bucle **for**, aún dentro de la función **validate**, crea una estructura **if**. Si **is_invalid** es **True**, devuelve **False**.
+
+## Paso 11
+
+Después de la sentencia **if**, imprime la cadena **'Valid format.'**. Luego retorna True.
+
+## Paso 12
+
+Al final de tu código, llama a la función **validate** con **medical_records** como argumento. Deberías ver **'Valid format.'** impreso en el terminal.
+
+## Paso 13
+
+Para probar la primera estructura **if** de tu función, convierte **medical_records** en una cadena. Deberías ver **'Invalid format: expected a list or tuple.'** impreso en el terminal.
+
+## Paso 14
+
+Ahora convierte **medical_records** de nuevo en una lista/tupla de diccionarios.
+
+## Paso 15
+
+Para probar la segunda estructura condicional, agrega dos elementos de tu elección que no sean diccionarios al final de la lista **medical_records**. Deberías ver dos mensajes de validación impresos en el terminal.
+
+## Paso 16
+
+Ahora que probaste la validación para esta parte, elimina los últimos dos elementos de la lista **medical_records**.
+
+## Paso 17
+
+Como aprendiste en una lección anterior, un conjunto es una colección desordenada de elementos únicos:
+
+```py
+# Código de ejemplo
+integers = set([3, 5, 1, 2, 1, 3, 4])
+print(integers) # {1, 2, 3, 4, 5}
+```
+
+Vas a usar un conjunto para asegurarte de que cada diccionario no contenga claves adicionales o mal escritas.
+
+Dentro de la función **validate**, usa la estructura **set()** para crear un conjunto a partir de la siguiente lista de claves que cada diccionario debe tener: 
+
+```py
+['patient_id', 'age', 'gender', 'diagnosis', 'medications', 'last_visit_id']
+```
+
+Asigna el conjunto a una variable llamada **key_set**.
+
+```py
+# Codigo de muestra
+key_set = set(['patient_id', 'age', 'gender', 'diagnosis', 'medications', 'last_visit_id'])
+```
+
+## Paso 18
+
+El método **keys()** devuelve un objeto vista que contiene todas las claves de un diccionario:
+
+```py
+# Código de ejemplo
+person = {
+   'name': 'John',
+   'age': 33
+}
+
+print(person.keys()) # dict_keys(['name, 'age'])
+```
+
+Dentro de tu bucle **for**, después de la primera sentencia **if**, crea una sentencia **if** que se ejecute cuando el conjunto de claves del diccionario actual sea diferente de **key_set**. Esto es para asegurar que no haya claves faltantes o inválidas en el diccionario.
+
+Dentro de la nueva estructura **if**, imprime **'Invalid format: &lt;dictionary&gt; at position &lt;index&gt; has missing and/or invalid keys.'** (donde &lt;dictionary&gt; y &lt;index&gt; deben ser reemplazados por el diccionario y el índice en la iteración actual) y asigna True a **is_invalid**.
+
+```py
+# Código de muestra
+if set(dictionary.keys()) != key_set:
+    print(f"Invalid format: {dictionary} at position {index} has missing and/or invalid keys.")
+    is_invalid = True
+```
+
+## Paso 19
+
+Para probar que todo funciona correctamente, intenta comentar la clave **age** del primer diccionario en **medical_records**.
+
+Deberías ver un mensaje de validación aparecer en el terminal.
+
+## Paso 20
+
+Ahora restaura la línea **'age': 34,**.
+
+## Paso 21
+
+Ahora vas a hacer que la validación sea más granular. Crea una función llamada **find_invalid_records** para encontrar valores inválidos en un diccionario. Dale los siguientes parámetros: **patient_id**, **age**, **gender**, **diagnosis**, **medications**, **last_visit_id**.
+
+Dentro de tu nueva función, crea un diccionario vacío llamado **constraints**. Luego, devuelve **constraints** desde tu nueva función.
+
+## Paso 22
+
