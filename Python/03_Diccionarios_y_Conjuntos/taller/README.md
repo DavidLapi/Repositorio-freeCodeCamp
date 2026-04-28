@@ -182,3 +182,335 @@ Dentro de tu nueva función, crea un diccionario vacío llamado **constraints**.
 
 ## Paso 22
 
+El operador `**` puede usarse para desempaquetar los elementos en un diccionario y pasarlos como argumentos con nombre en una llamada a función:
+
+```py
+def sum(a, b, c):
+    return a + b + c
+nums = {'a': 2, 'b': 4, 'c': 1}
+
+print(sum(**nums)) # 7
+```
+
+En el ejemplo anterior, `sum(**nums)` es equivalente a `sum(a=2, b=4, c=1)`.
+
+Al final de tu código, imprime el resultado de llamar a la función **find_invalid_records**. Para sus argumentos, usa el operador `**` para desempaquetar `medical_records[0]`.
+
+## Paso 23
+
+El diccionario **constraints** contendrá cada clave que debes esperar tener en los datos para validar. El valor asociado a cada una indicará el resultado de la validación.
+
+Agrega la clave `patient_id` al diccionario **constraints**. Para su valor, usa una llamada a **isinstance** pasando `patient_id` y `str` como argumentos.
+
+## Paso 24
+
+Como escribiste en el paso anterior, **patient_id** debería ser una cadena. Sin embargo, quieres verificar que también tenga un patrón específico.
+
+Para eso, vas a usar una expresión regular. Por lo tanto, en la parte superior de tu código, usa la palabra clave `import` para importar el módulo `re`.
+
+## Paso 25
+
+Una expresión regular, o regex, es una estructura usada para coincidir con una secuencia de caracteres en texto. La función `search` del módulo `re` toma un patrón regex y una cadena como sus argumentos.
+
+Devuelve un objeto de coincidencia correspondiente si el patrón produce una coincidencia. De lo contrario, devuelve **None**.
+
+```py
+# Código de ejemplo
+import re
+
+greeting = "Hello there!"
+print(re.search('Hi', greeting)) # None
+print(re.search('Hello', greeting)) # <re.Match object; span=(0, 5), match='Hello'>
+```
+
+Llama a `re.search` con la cadena **p** como primer argumento y **patient_id** como segundo argumento. Usa el operador `and` para agregar la llamada a la función como una segunda expresión al valor de tu clave **patient_id**.
+
+```py
+# Codigo de muestra
+constraints = {
+    'patient_id': isinstance(patient_id, str) and re.search('p', patient_id)
+}
+```
+
+## Paso 26
+
+Ahora puedes ver `{'patient_id': None}` impreso en el terminal porque la **p** minúscula no coincide con **P1001** y el operador `and` devuelve el primer valor falso de la expresión.
+
+Quieres asegurarte de que el ID del paciente comience con la letra **p**, pero puede ser minúscula o mayúscula. Para modificar el comportamiento de coincidencia de las expresiones regulares, puedes usar flags. Por ejemplo, **re.search** acepta un tercer argumento para especificar cualquier flag:
+
+```py
+import re
+
+greeting = "Hello there!"
+print(re.search('hello', greeting)) # None
+
+print(re.search('hello', greeting, re.IGNORECASE))
+# <re.Match object; span=(0, 5), match='Hello'>
+```
+
+Agrega `re.IGNORECASE` como el tercer argumento a tu llamada **re.search**. Esto hará que tu búsqueda con regex no distinga entre mayúsculas y minúsculas.
+
+Después de eso, verás que **None** es reemplazado por el objeto de coincidencia `<re.Match object; span=(0, 1), match='P'>`, donde **match** indica la coincidencia y **span** indica su ubicación en la cadena.
+
+```py
+# Codigo de muestra
+constraints = {
+    'patient_id': isinstance(patient_id, str) and re.search('p', patient_id, re.IGNORECASE)
+}
+# Output: {'patient_id': <re.Match object; span=(0, 1), match='P'>}
+```
+
+## Paso 27
+
+Las expresiones regulares pueden contener secuencias especiales que consisten en una barra invertida (`\`) seguida de un carácter. Estas secuencias tienen un significado especial. Por ejemplo, `\d` coincide con un dígito decimal.
+
+```py
+# Codigo de ejemplo
+import re
+
+book = "Fahrenheit 451"
+print(re.search('\d', book))
+# <re.Match object; span=(11, 12), match='4'>
+```
+
+Después de la letra **p**, `patient_id` debe tener una serie de números. Entonces, modifica tu patrón regex para que tenga el carácter **p** seguido de la secuencia especial `\d`.
+
+```py
+# Codigo de muestra
+constraints = {
+    'patient_id': isinstance(patient_id, str) and re.search('p\d', patient_id, re.IGNORECASE)
+}
+# Output: {'patient_id': <re.Match object; span=(0, 2), match='P1'>}
+```
+
+## Paso 28
+
+Los cuantificadores se usan en expresiones regulares para especificar cuántas veces un carácter puede repetirse. Por ejemplo, el carácter `+` coincide con el carácter anterior una o más veces:
+
+```py
+# Código de ejemplo
+import re
+
+book = "Fahrenheit 451"
+print(re.search('\d', book))
+# <re.Match object; span=(11, 12), match='4'>
+
+print(re.search('\d+', book))
+# <re.Match object; span=(11, 14), match='451'>
+```
+
+Entonces añade un cuantificador `+` a tu patrón regex para que coincida con uno o más dígitos.
+
+```py
+# Codigo de muestra
+constraints = {
+    'patient_id': isinstance(patient_id, str) and re.search('p\d+', patient_id, re.IGNORECASE)
+}
+# Output: {'patient_id': <re.Match object; span=(0, 5), match='P1001'>}
+```
+
+## Paso 29
+
+Ahora que tu regex coincide con la letra `p` seguida de uno o más dígitos, lo último que necesitas verificar es que no se encuentren caracteres adicionales en la cadena.
+
+Para eso puedes usar otra función del módulo `re`. La función **fullmatch** devuelve un objeto match cuando el patrón regex coincide con toda la cadena y **None** en caso contrario.
+
+```py
+# Código de ejemplo
+import re
+
+book = "Fahrenheit 451"
+print(re.fullmatch('\d+', book)) #None
+
+print(re.fullmatch('Fahrenheit \d+', book))
+# <re.Match object; span=(0, 14), match='Fahrenheit 451'>
+```
+
+Reemplaza la llamada `search` con una llamada `fullmatch` manteniendo los mismos argumentos.
+
+```py
+# Codigo de muestra
+constraints = {
+    'patient_id': isinstance(patient_id, str) and re.fullmatch('p\d+', patient_id, re.IGNORECASE)
+}
+# Output: {'patient_id': <re.Match object; span=(0, 5), match='P1001'>}
+```
+
+## Paso 30
+
+A continuación, quieres verificar que `age` sea un entero. Así que agrega otra clave `age` al diccionario **constraints**. Para su valor, llama a **isinstance** pasando `age` e `int` como sus argumentos.
+
+## Paso 31
+
+`age` no solo debe ser un entero, debe ser un entero positivo mayor o igual a **18**.
+
+Usando el operador `and`, añade una segunda expresión al valor de la clave `age` para verificar eso.
+
+```py
+# Código de muestra
+'age': isinstance(age, int) and age >= 18
+```
+
+## Paso 32
+
+Agrega otra clave **gender** al diccionario **constraints**. Siguiendo el formato de la expresión que escribiste en los pasos anteriores, verifica que **gender** sea una cadena. Luego, usa el operador `and` para comprobar que el **gender** en minúsculas esté en **('male', 'female')**.
+
+```py
+# Código de muestra
+'gender': (isinstance(gender, str) and gender.lower() in ('male', 'female'))
+```
+
+## Paso 33
+
+Ahora agrega una clave **diagnosis** al diccionario **constraints**. Para su valor, escribe una expresión que verifique que **diagnosis** sea una instancia de **str** o sea `None`.
+
+```py
+# Codigo de muestra
+'diagnosis': isinstance(diagnosis, str) or diagnosis is None
+```
+
+## Paso 34
+
+A continuación, agrega una clave **medications** al diccionario **constraints**. Para su valor, usa `isinstance` para verificar que **medications** sea una lista.
+
+```py
+# Codigo de muestra
+'medications': isinstance(medications, list)
+```
+
+## Paso 35
+
+Como aprendiste en una lección anterior, se puede usar una comprensión de listas para crear una lista a partir de un iterable existente:
+
+```py
+# Código de ejemplo
+squares = [0, 1, 4, 9, 16, 25]
+
+roots = [i ** 0.5 for i in squares]
+print(roots) # [0.0, 1.0, 2.0, 3.0, 4.0, 5.0]
+```
+
+Cada elemento en la lista **medications** debe ser una cadena. En este paso y en el siguiente escribirás una expresión para verificar eso. Usa el operador `and` para agregar otra expresión al valor de la clave **medications**.
+
+En el lado derecho del operador `and`, usa la sintaxis de comprensión de listas para crear una lista evaluando `isinstance(i, str)` para cada **i** en **medications**.
+
+```py
+# Codigo de muestra
+'medications': isinstance(medications, list) and [isinstance(i, str) for i in medications]
+```
+
+## Paso 36
+
+La función **all** devuelve **True** si todos los elementos del iterable que se le pasa son verdaderos, y **False** en caso contrario:
+
+```py
+# Código de ejemplo
+truthy = [1, 2, 3]
+print(all(truthy)) # True
+
+falsy = [0, 1, 2, 3]
+print(all(falsy)) # False
+```
+
+Pasa la lista `[isinstance(i, str) for i in medications]` a la función **all** para asegurarte de que cada elemento en ella sea una cadena.
+
+```py
+# Código de muestra
+'medications': isinstance(medications, list) and all([isinstance(i, str) for i in medications])
+```
+
+## Paso 37
+
+Agrega una última clave **last_visit_id** al diccionario **constraints**. Para su valor, usa `isinstance` para verificar que **last_visit_id** sea una cadena.
+
+```py
+# Codigo de muestra
+'last_visit_id': isinstance(last_visit_id, str)
+```
+
+## Paso 38
+
+Es hora de usar otra expresión regular. De manera similar a lo que ya hiciste, usa el operador `and` para agregar una expresión al valor actual de `constraints['last_visit_id']`.
+
+En el lado derecho del operador **and**, usa la función **fullmatch** del módulo **re** para asegurarte de que **last_visit_id** comience con la letra **v** (ya sea minúscula o mayúscula) seguida de uno o más dígitos.
+
+```py
+# Codigo de muestra
+'last_visit_id': isinstance(last_visit_id, str) and re.fullmatch('v\d+', last_visit_id, re.IGNORECASE)
+```
+
+## Paso 39
+
+Ahora que tu diccionario **constraints** está completo, cambiarás la sentencia **return** de `find_invalid_records` para que devuelva una lista de las claves inválidas.
+
+Usando la sintaxis de comprensión de listas, devuelve una lista que evalúa **key** para cada `key, value` en **constraints.items()**.
+
+```py
+# Codigo de muestra
+return [key for key, value in constraints.items()]
+```
+
+## Paso 40
+
+Las comprensiones de listas también aceptan cláusulas `if` para filtrar elementos de un iterable:
+
+```py
+# Código de ejemplo
+nums = [1, 2, 3, 4, 5, 6]
+even_nums = [num for num in nums if num % 2 == 0]
+print(even_nums) # [2, 4, 6]
+```
+
+Como quieres devolver una lista que contenga solo las claves inválidas, agrega una cláusula **if** a tu comprensión para que cada **key** se agregue a la lista solo cuando **value** sea falso.
+
+```py
+# Codigo de muestra
+return [key for key, value in constraints.items() if value == False]
+# Alt: return [key for key, value in constraints.items() if not value]
+```
+
+## Paso 41
+
+La función **find_invalid_records** está completa. Ahora, elimina `print(find_invalid_records(**medical_records[0]))` de tu código.
+
+## Paso 42
+
+Volviendo a la función **validate**, después de las dos sentencias **if** y aún dentro del bucle **for**, crea una variable llamada **invalid_records**.
+
+Luego, asígnale una llamada a **find_invalid_records** usando el operador `**` para desempaquetar **dictionary**.
+
+```py
+# Codigo de muestra
+invalid_records = find_invalid_records(**dictionary)
+```
+
+## Paso 43
+
+Si pasas datos inválidos a la función **validate**, por ejemplo una lista que contiene elementos que no son diccionarios o diccionarios con claves faltantes y/o inválidas, Python generará un `AttributeError` y un `TypeError`, respectivamente. Siéntete libre de verificarlo modificando la lista **medical_records**.
+
+Para evitar eso, después de establecer **is_invalid** en **True**, usa la palabra clave **continue** para saltar a la siguiente iteración en ambas sentencias **if**.
+
+## Paso 44
+
+Justo después de la variable **invalid_records**, crea un bucle **for** para iterar sobre ella. Para cada registro inválido, imprime **'Unexpected format `'<key>: <val>'` at position `<index>`.'**. Reemplaza `<key>`, `<val>` y `<index>` con la clave, valor e índice actuales.
+
+Recuerda que **invalid_records** es una lista de claves que se refieren a registros inválidos en el **dictionary** actual. Necesitarás tomar la clave de **invalid_records** y buscar el valor en **dictionary**.
+
+Posición o **index** se refiere al diccionario actual en **medical_records**, definido por el bucle **for** externo en la función.
+
+Revisa tu código hasta ahora si necesitas recordarte de los bucles y variables ya creados.
+
+Luego, establece **is_invalid** en **True**.
+
+Siéntete libre de probar la función **validate** con datos inválidos para ver los mensajes de validación.
+
+Con eso, el taller del validador médico está completo.
+
+```py
+# Codigo de muestra
+for index, (key, value) in enumerate(invalid_records):
+    print(f"Unexpected format '{key}: {value}' at position {index}.")
+    is_invalid = True
+```
+
+
