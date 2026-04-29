@@ -34,7 +34,15 @@ medical_records = [
         'diagnosis': 'Chronic Back Pain',
         'medications': ['Ibuprofen', 'Physical Therapy'],
         'last_visit_id': 'V2304',
-    }
+    },
+    {
+        'patient_id': 'p',
+        'age': 47,
+        'gender': 'ale',
+        'diagnosis': 'Type 2 Diabetes',
+        'medications': 'Metformin',
+        'last_visit_id': 'v2302',
+    },
 ]
 
 # Variable helloWorld
