@@ -248,4 +248,147 @@ your_set = {4, 5, 6}
 print(my_set.isdisjoint(your_set)) # True
 ```
 
+- **Operador de Unión (`|`):** El operador de unión `|` devuelve un nuevo conjunto con todos los elementos de ambos conjuntos.
 
+```py
+my_set = {1, 2, 3}
+your_set = {4, 5, 6}
+
+my_set | your_set # {1, 2, 3, 4, 5, 6}
+```
+
+- **Operador de intersección (`&`):** El operador de intersección `&` devuelve un nuevo conjunto con solo los elementos que los conjuntos tienen en común.
+
+```py
+my_set = {1, 2, 3, 4, 5}
+your_set = {2, 3, 4, 6}
+
+my_set & your_set # {2, 3, 4}
+```
+
+- **Operador de diferencia (`-`):** El operador de diferencia `-` devuelve un nuevo conjunto con los elementos del primer conjunto que no están en los otros conjuntos.
+
+```py
+my_set = {1, 2, 3, 4, 5}
+your_set = {2, 3, 4, 6}
+
+my_set - your_set # {1, 5}
+```
+
+- **Operador de Diferencia Simétrica (`^`):** El operador de diferencia simétrica `^` devuelve un nuevo conjunto con los elementos que están en el primer o en el segundo conjunto, pero no en ambos.
+
+```py
+my_set = {1, 2, 3, 4, 5}
+your_set = {2, 3, 4, 6}
+
+my_set ^ your_set # {1, 5, 6}
+```
+
+- **Operador `in`:** Puedes verificar si un elemento está en un conjunto o no con el operador `in`.
+
+```py
+print(5 in my_set) # True
+```
+
+## Biblioteca Estándar de Python
+
+- **Biblioteca Estándar de Python:** Una biblioteca te ofrece código preescrito y reutilizable, como funciones, clases y estructuras de datos, que puedes reutilizar en tus proyectos. Python tiene una extensa biblioteca estándar con módulos integrados que implementan soluciones estandarizadas para muchos problemas y tareas. Algunos ejemplos de módulos integrados populares son `math`, `random`, `re` (abreviatura de "expresiones regulares") y `datetime`.
+
+## Declaración de importación
+
+- **Declaración `Import`:** Para acceder a los elementos definidos en módulos integrados, usas una declaración `import`. Las declaraciones `import` generalmente se escriben al principio del archivo. Las declaraciones `import` funcionan igual para funciones, clases, constantes, variables y cualquier otro elemento definido en el módulo.
+
+- **Declaración básica de importación:** Puedes usar la palabra clave `import` seguida del nombre del módulo:
+
+```py
+import module_name
+```
+
+Luego, si necesitas llamar a una función de ese módulo, usarías la notación de punto, con el nombre del módulo seguido del nombre de la función.
+
+```py
+module_name.function_name()
+```
+
+Por ejemplo, escribirías lo siguiente en tu código para importar el módulo `math` y obtener la raíz cuadrada de 36:
+
+```py
+import math
+
+math.sqrt(36)
+```
+
+- **Importar un Módulo con un Nombre Diferente:** Si necesitas importar el módulo con un nombre diferente (también conocido como un "alias"), puedes usar `as` seguido del alias al final de la declaración de importación. Esto se usa a menudo para nombres de módulos largos o para evitar conflictos de nombres.
+
+```py
+import module_name as module_alias
+```
+
+Por ejemplo, para referirte al módulo `math` como `m` en tu código, puedes asignar un alias así:
+
+```py
+import math as m
+```
+
+Luego, puedes acceder a los elementos del módulo usando el alias:
+
+```py
+m.sqrt(36)
+```
+
+- **Importar Elementos Específicos:** Si no necesitas todo de un módulo, puedes importar elementos específicos usando `from`. En este caso, la declaración de importación comienza con `from`, seguida del nombre del módulo, luego la palabra clave `import` y finalmente los nombres de los elementos que quieres importar.
+
+```py
+from module_name import name1, name2
+```
+
+Luego, puedes usar estos nombres sin el prefijo del módulo en tu script de Python. Por ejemplo:
+
+```py
+from math import radians, sin, cos
+
+angle_degrees = 40
+angle_radians = radians(angle_degrees)
+
+sine_value = sin(angle_radians)
+cos_value = cos(angle_radians)
+
+print(sine_value) # 0.6427876096865393
+print(cos_value)  # 0.766044443118978
+```
+
+Esto es útil, pero puede resultar en conflictos de nombres si ya tienes funciones o variables con el mismo nombre. Tenlo en cuenta al elegir qué tipo de declaración de importación quieres usar.
+
+Si necesitas asignar alias a estos nombres, también puedes hacerlo usando la palabra clave `as` seguida del alias.
+
+```py
+from module_name import name1 as alias1, name2 as alias2
+```
+
+- **Declaración de importación con asterisco (`*`):** El asterisco indica a Python que quieres importar todo en ese módulo, pero quieres importarlo para que no necesites usar el nombre del módulo como prefijo.
+
+```py
+from module_name import *
+```
+
+Por ejemplo, si usas esto para importar el módulo `math`, podrás llamar a cualquier función definida en ese módulo sin especificar el nombre del módulo como prefijo.
+
+```py
+from math import *
+print(sqrt(36))  # 6.0
+```
+
+Sin embargo, esto generalmente se desaconseja porque puede provocar colisiones de espacio de nombres y dificultar saber de dónde provienen los nombres.
+
+## `if __name__ == '__main__'`
+
+- **Variable `__name__`:** `__name__` es una variable especial incorporada en Python. Cuando un archivo Python se ejecuta directamente, Python asigna el valor de esta variable a la cadena `__main__`. Pero si el archivo Python se importa como un módulo en otro script Python, el valor de la variable `__name__` se establece con el nombre de ese módulo.
+
+Por eso a menudo encontrarás esta condicional en scripts de Python. Contiene el código que solo quieres ejecutar **solo** si el script de Python se está ejecutando como el programa principal.
+
+```py
+if __name__ == '__main__': 
+    # Code
+```
+
+## FIN
